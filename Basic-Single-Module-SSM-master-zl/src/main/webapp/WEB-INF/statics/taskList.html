@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{margin:0px;  padding:0px;}
+        ul li{list-style: none;}
+        a{text-decoration:none;}
+        .taskbox{display: table;margin:10% auto;padding-bottom:20px;width:76%;background:url(taskList/taskback.png) repeat;box-shadow: 1px 1px 6px 1px #1f211a;}
+        .taskTitle{margin:20px 0px  0px 30px;width:25%;height:35px;color:#fff;border:1px solid #282828; }
+        .taskTitle h3{text-align: center;line-height:35px;border:1px solid #736627;background:url(taskList/hbg1.png);  }
+        .taskInfor{margin:20px auto 0px;display:table;width:99%;line-height:35px;background:url(taskList/hbg2.png);clear:both;  }
+        .taskInfor span{display: inline-block;color: #b8aa25;font-weight: 700;}
+        .taskInfor span.taskName{margin-left:  35%;  }
+        .taskInfor span.statu{margin-left: 30%;}
+        .taskListBox{margin:0 auto;width:99%;}
+        .taskListBox li{padding:8px 0px;border-bottom: 1px dotted #ffffff;}
+        .taskListBox li strong,.taskListBox li span,.taskListBox li a{display: inline-block;line-height: 25px;}
+        .taskListBox li strong{width:40px;background-color:#000000;text-align: center;color: #b88208;  }
+        .taskListBox li span{margin-left: 8px;color: #d3d76a;  }
+        .taskListBox li a{margin:3px 0px; box-shadow: 1px 1px 1px 1px #3a3838,-1px -1px 1px 1px #3a3939;  border-radius: 2px;  padding: 2px 6px;  background-color: #272626;  }
+        .taskListBox li a.statusInfor{margin-left:59%;color:#ffffff;}
+        .taskListBox li a.itemInfor{margin-left:10%;color: #ffd720;}
+    </style>
+</head>
+<body>
+<div class="taskbox">
+    <div class="taskTitle">
+        <h3>任务列表</h3>
+    </div>
+    <div class="taskInfor clearfix">
+        <span class="taskName">任务名称</span>
+        <span class="statu">状态</span>
+    </div>
+    <ul class="taskListBox">
+        <li><strong>1</strong><span>该浇水了</span><a href="#" class="statusInfor">已完成</a><a href="#" class="itemInfor">查看详情</a></li>
+        <li><strong>2</strong><span>该浇水了</span><a href="#" class="statusInfor">已完成</a><a href="#" class="itemInfor">查看详情</a></li>
+    </ul>
+</div>
+</body>
+</html>

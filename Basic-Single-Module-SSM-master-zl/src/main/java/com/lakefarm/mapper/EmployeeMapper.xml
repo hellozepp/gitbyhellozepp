@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lakefarm.mapper.EmployeeMapper">
+<select id="findUserMoneyById" parameterType="String" resultType="int">
+   SELECT  userinfo.u_money FROM userinfo WHERE userinfo.u_id=#{u_id}
+</select>
+   <select id="findEmpolyeeMoneyById" parameterType="int" resultType="int">
+     SELECT employee.e_price FROM employee WHERE e_id=#{e_id}
+   </select>
+
+
+    <select id="findE_type" parameterType="int" resultType="String">
+        SELECT employee.e_typeid FROM employee WHERE e_id=#{e_id}
+    </select>
+    <select id="findE_duration" parameterType="int" resultType="int">
+        SELECT employee.e_duration FROM employee WHERE e_id=#{e_id}
+    </select>
+
+
+
+
+   <update id="updateUserMoney" parameterType="com.lakefarm.pojo.User">
+        UPDATE userinfo u SET u.u_money=#{u_money} WHERE u_id=#{u_id}
+   </update>
+    <select id="findUser_employeeIsExists" parameterType="String" resultType="int">
+        SELECT e_id FROM lakefarm.user_employee WHERE u_id=#{u_id}
+    </select>
+    <select id="findEmployeeById" parameterType="int" resultType="com.lakefarm.pojo.Employee">
+        SELECT employee.e_id,employee.e_duration,employee.e_icon,employee.e_name,employee.e_price,employee.e_typeid
+        FROM lakefarm.employee WHERE e_id=#{e_id}
+    </select>
+    <insert id="insertUser_employee" parameterType="com.lakefarm.pojo.User_employee">
+   INSERT INTO user_employee(u_id,e_id,e_typeid,e_duration,e_starteddate,e_enddate,e_egrade)
+    VALUES (#{u_id},#{e_id},#{e_typeid},#{e_duration},#{e_starteddate},#{e_enddate},#{e_egrade})
+    </insert>
+</mapper>
