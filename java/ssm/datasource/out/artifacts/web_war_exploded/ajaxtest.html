@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var xmlhttp=new XMLHttpRequest();
+        function yyy() {
+            var str =document.getElementById("text1").value;
+            xmlhttp.onreadystatechange=rrr;
+//            alert(str);
+            xmlhttp.open("post","/tt",true);
+            xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xmlhttp.send("xxx="+str);
+        }
+        function rrr() {
+            if (xmlhttp.readyState==4) {// 4 = "loaded"
+                if (xmlhttp.status==200) {// 200 = "OK"
+                    var str=eval("("+xmlhttp.responseText+")");
+                    alert(str);
+                    document.getElementById("uuu").innerHTML=str.res;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input id="text1" type="text"/>
+    <input type="button" value="aaa" onclick="yyy()"/>
+    <div id="uuu"></div>
+</body>
+</html>

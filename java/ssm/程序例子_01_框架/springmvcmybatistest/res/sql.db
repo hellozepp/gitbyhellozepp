@@ -1,0 +1,5 @@
+create database myuser;
+use myuser;
+create table t_user(userId int,userName varchar(100),userAge int);
+insert into t_user values(1,'aaa',23);
+insert into t_user values(2,'bbb',55);

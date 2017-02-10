@@ -1,0 +1,122 @@
+*{margin:0;
+    padding:0;
+    list-style:none;
+    font-size:16px;
+color: #FFFFFF}
+
+body{
+    background-color: #070707;
+}
+
+#closeThisPage{ width: 67px;height: 67px;float: right;margin-top: 10px;    margin-top: -67px;
+    margin-right: 67px;;background: url("../img/btn_start_help_press_close.png")  no-repeat}
+/*notice宽度为298px+2px=300px的宽度，最外面的盒子*/
+.notice{
+    width:95%;
+    height:500px;
+    margin:0 auto;
+
+    border-top:2px solid #1D140F;
+    /*border:1px solid green;*/
+    overflow:hidden;
+}
+.information{
+    margin: 0 auto;
+    width: 95%;
+    height: 100px;
+    /*border: 1px solid darkgreen;*/
+}
+.information table{
+    width:100%;
+    height: 100%;
+    border: 2px solid grey;
+}
+.information table tr,.information table tr td{
+     border: 1px solid grey;
+}
+.information table tr td{
+    width: 33.1%;
+}
+/*高度是27像素，同时相对定位*/
+.notice-tit{
+    height:10%;
+    position:relative;
+    background:#1D140F;
+}
+/*采用绝对定位，宽度比300px多一个像素，但是left值是-1!*/
+.notice-tit ul{
+    position:absolute;
+    /*display:inline-block;//成为块元素，但是具有内联元素特性不换行*/
+    /*
+      width:401px;
+      left:-1px;
+    （1）这里的宽度要大于等于300就是可以的，父元素设置了298px的宽度，如果把这里设置为300，那么表示右边覆盖父元素的右边框同时还有一个像素多余
+      这时候只要我把整个ul往左边移动1px就可以了!
+                （2）设置了margin:-1px时候就会导致我第一个li的padding到了外层元素的边框下面了，所以以后虽然我会给这个左边边框加上颜色，但是也是没有效果的，因为他本来就是padding的内容，但是现在变成了border后，其还是被外面的颜色覆盖了。
+      为什么宽度不能小于300px?
+      因为虽然父元素设置了超出隐藏，但是所有的li元素的宽度之和是300px，也就是宽度至少是300px，否则会放不下所有的li元素!
+      那么为什么是左边多出一个多余的边框?
+      因为我的左边边框是紧挨着父元素的边框显示的，所以我的边框也会出现，除非我往左边移动一个像素使得他覆盖掉父元素的边框!
+    */
+    width:100%;
+    margin-left:-1px;
+
+    /*
+    width:300px;因为父元素只有298px，于是我把它设置为300px，那么就会在右边覆盖了父元素的右边框同时还有一个像素多余，如果我把元素左边移动1px
+      那么两边的边框都会重叠覆盖，这就是margin负值的特点!
+    margin-left:-1px;
+     */
+}
+/*每一个li都是58px+2px=60px*/
+.notice-tit li{
+    float:left;
+    width:100px;
+    height:50px;
+    line-height:50px;
+    text-align:center;
+    overflow:hidden;
+    /*background:#FFF;*/
+    padding:0 1px;
+    background:#000000;
+    border-bottom:1px solid #1D140F;}
+/*对于选中的项目，我们把加上一个边框，那么该盒子就会变大，这时候我们的做法就是去除上面的padding
+ 所以就是用border来代替上面的padding就可以了!
+*/
+
+
+.notice-tit li.select{background:#000000;
+    border-bottom-color:#000000;
+    border-left:2px solid #1D140F;
+    border-right:2px solid #1D140F;
+    padding:0;
+    font-weight:bolder;}
+
+.notice li a:link,.notice li a:visited{text-decoration:none;
+    color:#000;}
+
+.notice li a:hover{color:#F90;}
+
+.notice-con .mod{
+    width:87%;
+    height:490px;
+    margin:0 auto;
+    /*border:1px solid red;*/
+}
+
+/*要计算盒子宽度!*/
+.notice-con .mod ul li{
+    float:left;
+    width:33.1%;
+    height:135px;
+    margin:0 auto;
+    /*border: 1px solid purple;*/
+    overflow:hidden;}
+
+.mod img{
+    width: 45%;
+    height: 85%;
+    margin:3% 0 0 3%;
+}
+.mod li{
+    background-image:url('../img/njbj.png');
+}

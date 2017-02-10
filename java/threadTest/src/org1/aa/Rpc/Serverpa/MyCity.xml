@@ -1,0 +1,7 @@
+<class modify="public" package="Rpc" name="MyCity" imp="implements" ipmname="City">
+    <method modify1="public" feild="String" methodname="ResWeather" name="city">
+        <res name="return" value="city+&quot;:  晴&quot;">
+        </res>
+    </method>
+
+</class>

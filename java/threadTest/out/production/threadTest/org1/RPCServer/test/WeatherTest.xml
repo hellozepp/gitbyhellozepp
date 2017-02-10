@@ -1,0 +1,7 @@
+<class package="org1.RPCServer" name="Wrather">
+    <attrs>
+        <attr name="Weather" type="String" value="&quot;阴&quot;"/>
+        <method name="weather" ></method>
+        <!--<method name="weather:+&quot;qing+&quot;:" ></method>-->
+    </attrs>
+</class>

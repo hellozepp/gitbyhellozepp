@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <link href="css/map_content.css" rel="stylesheet" type="text/css" />
+    <script src="js/bootstrap.js" type="javascript"></script>
+    <script src="js/jquery.min.js" type="javascript"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <title>游戏地图</title>
+    <script>
+    $(document).ready(function(){
+    $(".map_02_1,.map_02_2,.map_02_3,.map_02_4").mouseenter(function(){
+    $("#map_02").css({background:"url('./images/baodiqv.png') no-repeat",width: "202px",height: "240px",float: "left","margin-left": "151px",
+        "margin-top":"-20px"});
+    })
+        $("#map_02").mouseleave(function(){
+            $("#map_02").css({background:"url('')",width:"0",height:"0"});
+        })
+    })
+    </script>
+    <script>
+        var i=0;
+        varintervalId=setInterval(
+            function(){
+                if(i==0){
+                    document.getElementById('content_box_right_notice').setAttribute("style","background:url('./images/noticeFindThief2.png') no-repeat;");
+                    i=1;
+                }
+                else {
+                    document.getElementById('content_box_right_notice').
+                    setAttribute("style","background:url('./images/noticeFindThief1.png') no-repeat;");
+                    i=0;
+                }
+            },450);
+//事件冒泡
+//    function setMapShade() {
+//        document.getElementById('map_02').
+//        setAttribute("style","background:url('./images/baodiqv.png') no-repeat;width: 202px;height: 240px;float: left;margin-left: 151px;margin-top: -20px;pointer-events: none;");
+//    }
+//    function clearBg() {
+//        document.getElementById('map_02').
+//        setAttribute("style","background:url('') no-repeat;");
+//    }
+
+    </script>
+</head>
+<body>
+    <div id="bg">
+        <div id="content_box">
+            <!--用户头像按钮开始-->
+            <div id="content_box_user">
+            <a href="javascript:;" ><img class="content_box_userInfo" alt="image" src="images/a1.jpg"></a>
+                                <span >
+                               <span ><strong class="content_box_userName">Beaut-zihan</strong></span>
+                                <span class="content_box_userName">普通用户 </span>
+                                </span>
+            </div>
+            <!--用户头像按钮结束-->
+            <!--左侧地图开始-->
+            <div class="content_box_left">
+                <div class="map_box">
+                    <a class="map_01" href="mainFarm.html"></a><br>
+                    <a id="map_02" href="mainFarm.html"></a>
+                    <a class="map_02_1" href="mainFarm.html" ></a>
+                    <a class="map_02_2" href="mainFarm.html"></a><br>
+                    <a class="map_02_3" href="mainFarm.html" ></a><br>
+                    <a class="map_02_4" href="mainFarm.html"></a><br>
+                    <a class="map_03" href="mainFarm.html" ></a><br>
+                    <a class="map_04" href="mainFarm.html"></a><br>
+                    <a class="map_05" href="mainFarm.html"></a><br>
+                </div>
+            </div>
+            <!--左侧地图结束-->
+            <!--右侧按钮开始-->
+            <div class="content_box_right">
+                <a id="content_box_right_notice" class="content_box_right_notice"
+                   style="background:url('images/noticeFindThief1.png') no-repeat;"></a>
+                <!--连接到下一个页面-->
+                <a class="content_box_right_moveTo"
+                   style="background:url('images/moveTo.png') no-repeat;" href="javascript:;"></a>
+            </div>
+            <!--左侧按钮结束-->
+        </div>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>登录-StuCommunity</title>
+<link rel="stylesheet" href="css/style.css">
+
+<body>
+<script>
+function login() {
+		var username =null;
+		var password=null;
+		var xmlhttp=null;
+		var val="";
+		if (window.XMLHttpRequest)
+		{// code for all new browsers
+			xmlhttp=new XMLHttpRequest();
+		}
+		else if (window.ActiveXObject)
+		{// code for IE5 and IE6
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function(){
+			//回调函数 编写逻辑操作客户端页面或responseText获取服务端数据
+
+			if(xmlhttp.readyState==4&&xmlhttp.status==200){
+
+				val =xmlhttp.responseText;
+				if("1"==val){
+					window.location="user/index.html";
+				}
+				else {alert("用户名或密码错误！");
+					document.getElementById("password").value="";
+
+				}
+			}
+		};
+		username =document.getElementById("username").value;
+		password=document.getElementById("password").value;
+		xmlhttp.open("post","/userlogin");//页面内容 请求 地址
+		alert("/userlogin?username="+username+"&password="+password);
+		xmlhttp.setRequestHeader("content-type","application/x-www-form-urlencoded");//设置请求头
+		xmlhttp.send("username="+username+"&password="+password);
+}
+</script>
+<div class="login-container">
+	<h1>StuCommunity</h1>
+	
+	<div class="connect">
+		<p>欢迎您的来到</p>
+	</div>
+	
+	<form method="get" >
+		<div>
+			<input type="text" id="username" name="username" class="username" placeholder="学号" autocomplete="off"/>
+		</div>
+		<div>
+			<input type="password" id="password" name="password" class="password" placeholder="密码" oncontextmenu="return false" onpaste="return false" />
+		</div>
+		<button id="submit" onclick="login()" type="button">登  录</button>
+	</form>
+
+	<a href="register.html">
+		<button type="button" class="register-tis">还没有账号？</button>
+	</a>
+
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/common.js"></script>
+<!--背景图片自动更换-->
+<script src="js/supersized.3.2.7.min.js"></script>
+<script src="js/supersized-init.js"></script>
+<!--表单验证-->
+<script src="js/jquery.validate.min.js"></script>
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+<p>加入我们，让您的大学生活更加丰富多彩。</p>
+</div>
+</body>
+</html>

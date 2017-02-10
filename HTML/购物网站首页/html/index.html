@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+   <script type="text/javascript" src="./css/jquery.js"></script>
+</head>
+<body>
+<form>
+<div class="container">
+    <div class="navbar-fixed-top navbar navbar-inverse " style="background:rgba(0, 166, 80,1);height:50px; ">
+        <ul style="list-style:none;line-height:40px;text-decoration:none;">
+            <li><a style="color: white;float: left;padding-right: 50px;padding-left:28%;overflow: hidden;">HELP</a></li>
+            <li><a style="color: white;float: left;padding-right: 50px;">TEL:123123123</a></li>
+            <li><a style="color: white;float: left;padding-right: 50px;">MY ACCOUINT</a></li>
+            <li><a  href="login.html" style="color: white;float: left;padding-right: 50px;">SING IN</a></li>
+            <li ><a style="color: white;float: left;padding-right: 50px;">CREATE ACCOUNT</a></li>
+            <li style="float: right;padding-right: 20%;color: #FFFFFF;" id="user"></li>
+            <script type="text/javascript">
+                var windows=window.opener;alert(windows.document.getElementById("nameId").value);
+                document.getElementById("user").innerHTML=windows.document.getElementById("nameId").value;
+            </script>
+        </ul>
+    </div>
+    <div class="container" style="width: 100%;">
+    <div class="banner"></div></div>
+    <div class="container" style="border-top:solid #000000;width:100%;-o-box-shadow: #2aabd2">
+        <div class="logo-nav">
+
+            <nav class="navbar navbar-default">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header nav_2">
+                    <button type="button" class="navbar-toggle collapsed navbar-toggle1" data-toggle="collapse" data-target="#bs-megadropdown-tabs">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="navbar-brand logo-nav-left ">
+                        <h1 class="animated wow pulse" data-wow-delay=".5s"><a href="index.html">Classic<span>Style</span></a></h1>
+                    </div>
+
+                </div>
+                <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="index.html" class="act">首页</a></li>
+                        <!-- Mega Menu -->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">女装 <b class="caret"></b></a>
+                            <ul class="dropdown-menu multi">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Submenu1</h6>
+
+                                            <li><a href="products.html">Accessories</a></li>
+                                            <li><a href="products.html">Bags</a></li>
+                                            <li><a href="products.html">Caps & Hats</a></li>
+                                            <li><a href="products.html">Hoodies & Sweatshirts</a></li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Submenu2</h6>
+                                            <li><a href="products.html">Jackets & Coats</a></li>
+                                            <li><a href="products.html">Jeans</a></li>
+                                            <li><a href="products.html">Jewellery</a></li>
+                                            <li><a href="products.html">Jumpers & Cardigans</a></li>
+                                            <li><a href="products.html">Leather Jackets</a></li>
+                                            <li><a href="products.html">Long Sleeve T-Shirts</a></li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Submenu3</h6>
+                                            <li><a href="products.html">Shirts</a></li>
+                                            <li><a href="products.html">Shoes, Boots & Trainers</a></li>
+                                            <li><a href="products.html">Sunglasses</a></li>
+                                            <li><a href="products.html">Sweatpants</a></li>
+                                            <li><a href="products.html">Swimwear</a></li>
+                                            <li><a href="products.html">Trousers & Chinos</a></li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="row-top">
+                                    <div class="col-sm-6 row1">
+                                        <a href="products.html"><img src="images/me.jpg" alt="" class="img-responsive"></a>
+                                    </div>
+                                    <div class=" col-sm-6 row2">
+                                        <a href="products.html"><img src="images/me1.jpg" alt="" class="img-responsive"></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">男装 <b class="caret"></b></a>
+                            <ul class="dropdown-menu multi multi1">
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Submenu1</h6>
+
+                                            <li><a href="products1.html">Accessories</a></li>
+                                            <li><a href="products1.html">Bags</a></li>
+                                            <li><a href="products1.html">Caps & Hats</a></li>
+                                            <li><a href="products1.html">Hoodies & Sweatshirts</a></li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Submenu2</h6>
+                                            <li><a href="products1.html">Jackets & Coats</a></li>
+                                            <li><a href="products1.html">Jeans</a></li>
+                                            <li><a href="products1.html">Jewellery</a></li>
+                                            <li><a href="products1.html">Jumpers & Cardigans</a></li>
+                                            <li><a href="products1.html">Leather Jackets</a></li>
+                                            <li><a href="products1.html">Long Sleeve T-Shirts</a></li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <ul class="multi-column-dropdown">
+                                            <h6>Submenu3</h6>
+                                            <li><a href="products1.html">Shirts</a></li>
+                                            <li><a href="products1.html">Shoes, Boots & Trainers</a></li>
+                                            <li><a href="products1.html">Sunglasses</a></li>
+                                            <li><a href="products1.html">Sweatpants</a></li>
+                                            <li><a href="products1.html">Swimwear</a></li>
+                                            <li><a href="products1.html">Trousers & Chinos</a></li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="row-top">
+                                    <div class="col-sm-6 row1">
+                                        <a href="products1.html"><img src="images/me2.jpg" alt="" class="img-responsive"></a>
+                                    </div>
+                                    <div class=" col-sm-6 row2">
+                                        <a href="products1.html"><img src="images/me3.jpg" alt="" class="img-responsive"></a>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </ul>
+                        </li>
+
+                        <li><a href="#"> 购物车</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+
+    </div>
+</div>
+
+<img id="touxiang1" style="width:150px;height:150px;border-radius:150px;margin-left: 19%"/>
+<a id="touxiang2"></a>
+<script>
+var url=window.document.location.href.toString();
+var u =url.split("?");
+
+var a =u[1].split("&");
+
+var b =a[0].split("=");
+
+var d=a[1].split("=");
+
+    $(function ()
+    {
+        if(b[1]!=null&&d[1]!=null)
+        $("#touxiang2").html(b[1].toString()+d[1].toString());
+        $("#touxiang1").attr('src',"./images/touxiang.jpg");
+       var c= $("#touxiang2").html().toString();
+        var sxas=c+"&nbsp;欢迎登录 ";
+        $("#touxiang2").html(sxas);
+    })
+</script>
+</form>
+</body>
+</html>

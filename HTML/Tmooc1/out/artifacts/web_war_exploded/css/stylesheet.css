@@ -1,0 +1,117 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;color: black;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: 文泉驿微米黑,"微软雅黑","宋体";list-style:none;
+}
+body{
+    min-width: 1024px;min-height:768px;
+    width: 100%;
+    height: 100%;
+    text-decoration:none;
+}
+a{
+    text-decoration-line:none;
+}
+#nav {
+    background-color:#797979;
+    width:100%;
+    height:80px;
+}
+#nav #logo {
+    width:200px;
+    height:60px;
+    float: left;
+    color: white;
+    font-size: 36px;
+}
+#logo a:link,#logo a:visited{
+    color: white;text-decoration:none;
+}
+#logo a:hover{
+    color: gold;text-decoration:none;
+}
+.navBox{
+    width: 1024px;height: 768px;line-height: 80px;text-align: center;margin: 0 auto;
+}
+.navInfo {width: 120px;height:80px;float: right;line-height: 80px;font-size: 20px;
+}
+.navInfo a:link,.navInfo a:visited{
+    color:#dddddd;text-decoration:none;
+}
+.navInfo a:hover{
+    text-decoration:none;color: white;
+}
+#navBrand{
+    width:100%;height:60px;background-color: #ececec;
+    border-bottom: solid  4px #000000;line-height: 60px;
+}
+#navBrand li{
+    float:left; font-weight:bold;font-size: 20px;height:60px;width:99px;text-align: center;
+} #navBrand li a{
+      height:60px;
+  }
+#navBrand li div:link, #navBrand li div:visited{
+    color:black;text-decoration:none;
+}
+#navBrand li div:hover{
+    text-decoration:none;background-color:rgba(0,0,0,0.1);
+}
+#navBrand li a:hover{
+    color: white;
+}
+.bannerBox{
+    width:1024px;height:100%;background-color: #5bc0de;margin: 0 auto;
+}
+#banner{
+    width:100%;background:deepskyblue;height:260px;
+}
+#search{
+    width:226px;float: left;
+    height:60px;
+}
+.subjectlist1 {
+    width: 1024px;height:70px;margin: 0 auto;line-height: 32px;
+    padding: 32px 0 0px;
+}
+.subjectList1 li{
+}
+#sjl1  li{
+    float: left;line-height: 35px;
+    font-weight:bold;font-size: 20px;height:35px;width:130px;text-align: center;padding-left:20px;padding-right:20px;
+}
+#sjl1 .h1-1{background-color:#c6ece4;} #sjl1 .h1-1:link, #sjl1 .h1-1:visited{text-decoration:none;background-color:#c6ece4;}  #sjl1 .h1-1:hover{background-color: #00C2DF;color: white;  }
+#sjl1 .h1-2{background-color:#E1CBEB;} #sjl1 .h1-2:link, #sjl1 .h1-2:visited{text-decoration:none;background-color:#c6ece4;}  #sjl1 .h1-2:hover{background-color: #00C2DF;color: white;  }
+#sjl1 .h1-3{background-color:#FFE4B9;} #sjl1 .h1-3:link, #sjl1 .h1-3:visited{text-decoration:none;background-color:#c6ece4;}  #sjl1 .h1-3:hover{background-color: #00C2DF;color: white;  }
+#sjl1 .h1-4{background-color:#C8FEA3;} #sjl1 .h1-4:link, #sjl1 .h1-4:visited{text-decoration:none;background-color:#c6ece4;}  #sjl1 .h1-4:hover{background-color: #00C2DF;color: white;  }
+#sjl1 .h1-5{background-color:#C7EFF2;} #sjl1 .h1-5:link, #sjl1 .h1-5:visited{text-decoration:none;background-color:#c6ece4;}  #sjl1 .h1-5:hover{background-color: #00C2DF;color: white;  }
+#sjl1 .h1-6{background-color:#E1CBEB;} #sjl1 .h1-6:link, #sjl1 .h1-6:visited{text-decoration:none;background-color:#c6ece4;}  #sjl1 .h1-6:hover{background-color: #00C2DF;color: white;  }
+#sjl1 .h1-7{background-color:#E1CBEB;} #sjl1 .h1-7:link, #sjl1 .h1-7:visited{text-decoration:none;background-color:#c6ece4;}  #sjl1 .h1-7:hover{background-color: #00C2DF;color: white;  }
+#sjl1 .h1-8{background-color:#C8FEA3;} #sjl1 .h1-8:link, #sjl1 .h1-8:visited{text-decoration:none;background-color:#c6ece4;}  #sjl1 .h1-8:hover{background-color: #00C2DF;color: white;  }
+#sjl1 .h1-9{background-color:#E1CBEB;} #sjl1 .h1-9:link, #sjl1 .h1-9:visited{text-decoration:none;background-color:#c6ece4;}  #sjl1 .h1-9:hover{background-color: #00C2DF;color: white;  }
+#sjl1Box {
+    width:1020px;height:200px;margin:0 auto;border:2px #A6E3D6 solid;
+}
+#sjl1Box li {float: left;padding-left: 20px;padding-right: 20px;margin:10px 5px;   background-color:rgba(0,0,0,0.1); }#sjl1Box a{color: gray}
+#sjl1Box li:hover{
+    background:rgba(0,0,0,0.1);color: white;
+}
+.footer_wrap {  margin-top: 30px;  background: #d8d8d8;  }.footer {   width: 980px;  margin: 0 auto;  padding: 30px 0;  }.footer_con {  font-size: 14px;
+                                                                                                                             color: #737373;
+                                                                                                                             line-height: 26px;
+                                                                                                                             text-align: center;  }.clearfloat {zoom: 1; }

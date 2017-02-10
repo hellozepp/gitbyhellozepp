@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="spring3_day02_aspectj"
+  id="myeclipse.1420697723625"
+  context-root="/spring3_day02_aspectj"
+  j2ee-spec="5.0"
+  archive="spring3_day02_aspectj.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

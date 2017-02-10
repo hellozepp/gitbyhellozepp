@@ -1,0 +1,18 @@
+<class modify="public" package="Rpc" name="ClientServer">
+    <import1 name="import java.io.BufferedReader;"></import1>
+    <import2 name="import java.io.InputStreamReader;"></import2>
+    <import3 name="import java.io.PrintStream;"></import3>
+    <import4 name="import java.net.Socket"></import4>
+    <Filed modify1="private" feild="Socket" Feildname="socket"></Filed>
+    <construct name="ClientServer" feild="Socket" cname="s" >
+        <this name=".socket=s"></this>
+    </construct>
+    <method modify="public" feild="String" name="Born" type="String" modifyname="name" thow="throws Exception">
+          <print prints="PrintStream" name="ps" new="new" canshu="socket.getOutputStream()" >
+              <println name="ps.println(name);"></println>
+              <Reader name="BufferedReader br=new BufferedReader(new InputStreamReader(socket.getInputStream()));"></Reader>
+              <String name="result" result="br.readLine()"></String>
+              <res name="return" value="result"/>
+          </print>
+    </method>
+</class>

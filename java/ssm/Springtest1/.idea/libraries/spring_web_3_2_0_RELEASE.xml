@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="spring-web-3.2.0.RELEASE">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/WebSpring/web/WEB-INF/lib/spring-web-3.2.0.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/WebSpring/web/WEB-INF/lib/spring-web-3.2.0.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

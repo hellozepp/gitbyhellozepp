@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<mapper namespace="org.entity.EmpMapper">
+
+    <select id="findAll" resultType="org.entity.Emp">
+        select EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO from T_EMP
+    </select>
+
+
+    <select id="findById" parameterType="int"
+            resultType="org.entity.Emp">
+        select EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO from T_EMP where EMPNO=#{id}
+    </select>
+
+
+    <insert id="addEmp"
+            parameterType="org.entity.Emp">
+        insert into T_EMP (EMPNO,ENAME,JOB,MGR,HIREDATE,SAL,COMM,DEPTNO)
+          values (#{empno},#{ename},#{job},#{mgr},#{hiredate},#{sal},#{comm},#{deptno})
+    </insert>
+
+
+    <delete id="deleteById" parameterType="int">
+        delete from T_EMP where EMPNO=#{id}
+    </delete>
+
+
+    <update id="updateEmp" parameterType="org.entity.Emp">
+        update T_EMP set ENAME=#{ename},JOB=#{job},MGR=#{mgr},HIREDATE=#{hiredate},
+                       SAL=#{sal},COMM=#{comm},DEPTNO=#{deptno} where EMPNO=#{empno}
+    </update>
+</mapper>

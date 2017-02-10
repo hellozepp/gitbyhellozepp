@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function login() {
+            if(document.getElementById("un").value==""||document.getElementById("ps").value==""){
+                alert("please anter your name and password!");
+                return;
+            }
+            document.getElementById("logform").submit();
+        }
+    </script>
+</head>
+<body>
+    <form id="logform" action="/tt.do" method="post">
+        <input name="userbean" type="hidden" value="org.User"/>
+        <input name="path" type="hidden" value="yy"/>
+        <input id="un" type="text" name="un"/>
+        <input id="ps" type="password" name="ps"/>
+        <input id="id" type="text" name="id"/>
+        <input type="button" value="login" onclick="login()">
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <title>游戏排行版</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css?v=67">
+    <style>
+        ul, li {
+            margin: 0px;
+            padding: 0px;
+            list-style: none
+        }
+
+        li {
+            float: left;
+            background-color: #3b8cff;
+            color: white;
+            padding: 5px;
+            margin-right: 2px;
+            border: 1px solid wheat;
+        }
+
+        li.myLi {
+            background-color: #e8e8e8;
+            border: 1px solid #e8e8e8;
+            color: #3b8cff;
+        }
+
+        div {
+            clear: left;
+            color: white;
+            width: 300px;
+            height: 100px;
+            padding: 10px;
+            display: none;
+        }
+
+        div.myDiv {
+            display: block;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            setHeight();
+        }
+        window.onresize = function () {
+            setHeight();
+        }
+
+        function setHeight() {
+            document.getElementById("gdt").style.height = document.body.clientHeight - 120 + "px";
+        }
+        function changestyle(v){
+            $(v).removeClass("mymyLi").addClass("myLi");
+            $(v).siblings().removeClass("myLi");
+        }
+    </script>
+</head>
+<body>
+
+<ul>
+    <li>当前
+        <ul>
+            <li class="myLi" onmousemove="changestyle(this)">种田能手</li>
+            <li onmousemove="changestyle(this)">江湖大盗</li>
+            <li onmousemove="changestyle(this)">武林盟主</li>
+        </ul>
+    </li>
+    <li>
+        周榜
+        <ul>
+            <li class="myLi" onmousemove="changestyle(this)">种田能手</li>
+            <li onmousemove="changestyle(this)">江湖大盗</li>
+            <li onmousemove="changestyle(this)">武林盟主</li>
+        </ul>
+    </li>
+</ul>
+
+<div style=" width:100%;overflow:auto;position: relative;height: 100%;" class="myDiv">
+    <section class="rank">
+        <span class="column1">1</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">2</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">3</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">4</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">5</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">6</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">7</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">8</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">9</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+</div>
+<div>
+    <section class="rank">
+        <span class="column1">1</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">2</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">3</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">4</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">5</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">6</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">7</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">8</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">9</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+</div>
+<div>
+    <section class="rank">
+        <span class="column1">1</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">2</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">3</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">4</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">5</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">6</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">7</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">8</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+    <section class="rank">
+        <span class="column1">9</span><span class="column2"><img src="images/pic.jpg" width="40"
+                                                                 height="40"/></span><span
+            class="column3">wolf</span><span class="column4">5000</span></section>
+</div>
+<div style="display:none;">
+  <span style="font-size:15px; font-weight:bold;  line-height:25px; color:#000; width:100%">游戏排行版<br/>
+  <a href="http://www.wolf4j.cn" target="_blank" style="color:#000">lakefarm</a><br/>
+   <a href="http://www.wolf4j.cn/" target="_blank" style="color:#000">在线API帮助文档</a> <br/>
+  <a target="_blank" href="http://www.wolf4j.cn">lakefarm<img border="0" src="www.wolf4j.cn"
+                                                              style="width:90px; height:22px;" alt="lakefarm welcom in"
+                                                              width="90" height="22" title="lakefarm"></a></span>
+</div>
+</body>
+</html>

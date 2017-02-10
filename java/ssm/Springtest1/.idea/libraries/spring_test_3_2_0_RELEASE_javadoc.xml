@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="spring-test-3.2.0.RELEASE-javadoc">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lib/spring-test-3.2.0.RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>

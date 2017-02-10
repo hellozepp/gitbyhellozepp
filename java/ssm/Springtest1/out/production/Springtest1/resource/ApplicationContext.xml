@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+        <!--id生成对象的标识符 class告诉配置文件 指向的对象 scope="singleton"单例模式:获得的是同一个对象-->
+         <!--scope="prototype" 多利-->
+    <!--init-method="init" destroy-method="destroy-->
+    <!--多例情况下销毁不了-->
+    <!--<bean id="person" class="org.spring.bean.PersonInfo" scope="singleton" p:name="hehe" p:age="12"/>-->
+    <!--spEL注入-->
+    <!--<bean id="person" class="org.spring.bean.PersonInfo" scope="prototype"  >-->
+        <!--<property name="name" value="#{'小王'}"/>-->
+        <!--<property name="age" value="#{11}"/>-->
+    <!--</bean>-->
+    <bean id="person" class="org.spring.bean.Person" scope="prototype" init-method="init" destroy-method="destroy">
+        <!--1 构造方法注入   2根据下标注入数据 ok-->
+        <constructor-arg name="name" value="haha"/>
+        <constructor-arg name="age" value="12"/>
+        <!--<constructor-arg index="0" value="21"></constructor-arg>-->
+        <!--<constructor-arg index="1" value="20"></constructor-arg>-->
+
+        <!--<property name="name" value="wang" ></property>-->
+        <!--<property name="age" value="12" ></property>-->
+        <property name="list">
+            <util:list list-class="java.util.ArrayList">
+                <value>test1</value>
+                <value>test2</value>
+                <value>test3</value>
+            </util:list>
+        </property>
+        <property name="map">
+            <map >
+              <entry key="test1" value="test"></entry>
+                <entry key="test1" value="text2"/>
+                <entry key="test2" value="text1"/>
+            </map>
+        </property>
+        <property name="set">
+            <util:set set-class="java.util.HashSet">
+                <value>settest1</value>
+                <value>settest2</value>
+            </util:set>
+        </property>
+    </bean>
+    <!--1 默认情况下使用的就是无参数的构造方法-->
+    <!--<bean id="noArgs" class="org.spring.LifeCycle.NoArgs" />-->
+    <!--2 静态工厂-->
+    <!--<bean id="bean2" class="org.spring.LifeCycle.BeanFactory" factory-method="getEat"></bean>-->
+    <!--3 非静态-->
+    <!--<bean id="bean3" factory-bean="BeanFactory1" factory-method="getEat1"></bean>-->
+    <!--<bean id="BeanFactory1" class="org.spring.LifeCycle.BeanFactory" ></bean>-->
+    <!--生命周期-->
+    <bean id="bean4" factory-bean="BeanFactory" factory-method="getEat1"/>
+    <bean id="BeanFactory" class="org.spring.LifeCycle.BeanFactory"
+          scope="singleton" init-method="setup" destroy-method="destroy">
+    </bean>
+    <bean class="org.spring.LifeCycle.MyBeanPostProcess"></bean>
+</beans>

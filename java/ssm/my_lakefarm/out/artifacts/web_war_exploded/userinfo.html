@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="css/userInfo.css"/>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/userinfo.js"></script>
+    <title>个人信息</title>
+</head>
+<body>
+<div class="Card ProfileMain">
+    <div class="ProfileMain-header">
+        <ul role="tablist" class="Tabs ProfileMain-tabs">
+            <li role="tab" class="Tabs-item Tabs-item--noMeta">
+                <a class="Tabs-link is-active" href="#" id="Profile-base">基本信息</a></li>
+            <li role="tab" class="Tabs-item">
+                <a class="Tabs-link" href="#" id="Profile-guyongbin">
+                    <!-- react-text: 116 -->雇佣兵基本信息<!-- /react-text --></a></li>
+            <li role="tab" class="Tabs-item">
+                <a class="Tabs-link" href="#" id="Profile-nongzhuang">
+                    <!-- react-text: 120 -->所拥有的农庄<!-- /react-text --></a></li>
+            <li role="tab" class="Tabs-item">
+                <a class="Tabs-link" href="#" id="Profile-caitan">
+                    <!-- react-text: 124 -->我的菜摊<!-- /react-text --></a></li>
+            <!--<li role="tab" class="Tabs-item" aria-controls="Profile-collections"><a class="Tabs-link"-->
+            <!--href="">-->
+            <!--&lt;!&ndash; react-text: 128 &ndash;&gt;收藏&lt;!&ndash; /react-text &ndash;&gt;<span class="Tabs-meta">0</span></a></li>-->
+            <!--<li role="tab" class="Tabs-item Tabs-item--noMeta" aria-controls="Profile-following"><a class="Tabs-link"-->
+            <!--href="">关注</a>-->
+            <!--</li>-->
+        </ul>
+    </div>
+    <div id="switchBase" class="show">
+    <div class="List-header">
+        <h4 class="List-headerText">
+            <span><!-- react-text: 261 -->我<!-- /react-text --><!-- react-text: 262 -->的资料<!-- /react-text --></span>
+        </h4>
+
+        <div class="List-headerOptions"></div>
+    </div>
+    <div class="ProfileHeader-wrapper">
+        <div class="ProfileHeader-main">
+            <div class="UserAvatarEditor ProfileHeader-avatar" style="top: -74px;">
+                <div class="UserAvatar">
+                    <img class="Avatar Avatar--large UserAvatar-inner" src="img/icon.jpg" style="width: 160px; height: 160px;"></div>
+                <input type="file" accept="image/png,image/jpeg" style="display: none;"></div>
+            <div class="ProfileHeader-content">
+                <div class="ProfileHeader-contentHead"><h1 class="ProfileHeader-title"><span class="ProfileHeader-name">东家四少</span><span
+                        class="RichText ProfileHeader-headline">年轻才俊</span><!-- react-empty: 92 --></h1></div>
+                <div class="ProfileHeader-contentBody" style="height: 20px;"><span><div class="ProfileHeader-info">
+                    <div class="ProfileHeader-infoItem">
+                        <div class="ProfileHeader-iconWrapper">
+                            <svg width="14" height="16" viewBox="0 0 14 14" class="Icon Icon--male" aria-hidden="true"
+                                 style="height: 16px; width: 14px;"><title></title>
+                                <g>
+                                    <path d="M3.025 10.64c-1.367-1.366-1.367-3.582 0-4.95 1.367-1.366 3.583-1.366 4.95 0 1.367 1.368 1.367 3.584 0 4.95-1.367 1.368-3.583 1.368-4.95 0zm10.122-9.368c-.002-.414-.34-.75-.753-.753L8.322 0c-.413-.002-.746.33-.744.744.002.413.338.75.75.752l2.128.313c-.95.953-1.832 1.828-1.832 1.828-2.14-1.482-5.104-1.27-7.013.64-2.147 2.147-2.147 5.63 0 7.777 2.15 2.148 5.63 2.148 7.78 0 1.908-1.91 2.12-4.873.636-7.016l1.842-1.82.303 2.116c.003.414.34.75.753.753.413.002.746-.332.744-.745l-.52-4.073z"
+                                          fill-rule="evenodd"></path>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                </div></span></div>
+                <div class="ProfileHeader-contentFooter">
+                    <div class="ProfileButtonGroup ProfileHeader-buttons">
+                        <button class="Button Button--blue" type="button"><!-- react-text: 104 -->编辑<!-- /react-text -->
+                            <!-- react-text: 105 -->个人<!-- /react-text --><!-- react-text: 106 -->资料
+                            <!-- /react-text --></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="">
+        <div class="List-item">
+            <div class="List-itemMeta">
+                <div class="ActivityItem-meta">
+                    <span class="ActivityItem-metaTitle">用户名</span>
+                </div>
+            </div>
+            <div class="ContentItem" data-za-module="QuestionItem">
+                <h2 class="ContentItem-title"><a href="#">东家四少</a>
+                </h2></div>
+        </div>
+        <div class="List-item">
+            <div class="List-itemMeta">
+                <div class="ActivityItem-meta">
+                    <span class="ActivityItem-metaTitle">所属用户群</span>
+                </div>
+            </div>
+            <div class="ContentItem" data-za-module="QuestionItem">
+                <h2 class="ContentItem-title"><a href="#">年轻才俊</a>
+                </h2></div>
+        </div>
+        <div class="List-item">
+            <div class="List-itemMeta">
+                <div class="ActivityItem-meta">
+                    <span class="ActivityItem-metaTitle">钻石量</span>
+                </div>
+            </div>
+            <div class="ContentItem" data-za-module="QuestionItem">
+                <h2 class="ContentItem-title"><a href="#">1000</a>
+                </h2></div>
+        </div>
+        <div class="List-item">
+            <div class="List-itemMeta">
+                <div class="ActivityItem-meta">
+                    <span class="ActivityItem-metaTitle">金币量</span>
+                </div>
+            </div>
+            <div class="ContentItem" data-za-module="QuestionItem">
+                <h2 class="ContentItem-title"><a href="#">1000</a>
+                </h2></div>
+        </div>
+        <div class="List-item">
+            <div class="List-itemMeta">
+                <div class="ActivityItem-meta">
+                    <span class="ActivityItem-metaTitle">兑换</span>
+                </div>
+            </div>
+            <div class="ContentItem" data-za-module="QuestionItem">
+                <h2 class="ContentItem-title"><a href="#">钻石可以未来作为红包或作为吃饭打车等现金消费，金币不可以</a>
+                </h2></div>
+        </div>
+    </div>
+    </div>
+
+
+
+    <div id="switchGY" class="hide">
+        <div class="List-header">
+            <h4 class="List-headerText">
+                <span><!-- react-text: 261 -->雇佣兵信息<!-- /react-text --></span>
+            </h4>
+
+            <div class="List-headerOptions"></div>
+        </div>
+        <!--<div class="ProfileHeader-wrapper">-->
+            <!--<div class="ProfileHeader-main">-->
+                <!--<div class="UserAvatarEditor ProfileHeader-avatar" style="top: -74px;">-->
+                    <!--<div class="UserAvatar">-->
+                        <!--<img class="Avatar Avatar--large UserAvatar-inner" src="img/icon.jpg" style="width: 160px; height: 160px;"></div>-->
+                    <!--<input type="file" accept="image/png,image/jpeg" style="display: none;"></div>-->
+                <!--<div class="ProfileHeader-content">-->
+                    <!--<div class="ProfileHeader-contentHead"><h1 class="ProfileHeader-title"><span class="ProfileHeader-name">东家四少</span><span-->
+                            <!--class="RichText ProfileHeader-headline">年轻才俊</span>&lt;!&ndash; react-empty: 92 &ndash;&gt;</h1></div>-->
+                    <!--<div class="ProfileHeader-contentBody" style="height: 20px;"><span><div class="ProfileHeader-info">-->
+                        <!--<div class="ProfileHeader-infoItem">-->
+                            <!--<div class="ProfileHeader-iconWrapper">-->
+                                <!--<svg width="14" height="16" viewBox="0 0 14 14" class="Icon Icon--male" aria-hidden="true"-->
+                                     <!--style="height: 16px; width: 14px;"><title></title>-->
+                                    <!--<g>-->
+                                        <!--<path d="M3.025 10.64c-1.367-1.366-1.367-3.582 0-4.95 1.367-1.366 3.583-1.366 4.95 0 1.367 1.368 1.367 3.584 0 4.95-1.367 1.368-3.583 1.368-4.95 0zm10.122-9.368c-.002-.414-.34-.75-.753-.753L8.322 0c-.413-.002-.746.33-.744.744.002.413.338.75.75.752l2.128.313c-.95.953-1.832 1.828-1.832 1.828-2.14-1.482-5.104-1.27-7.013.64-2.147 2.147-2.147 5.63 0 7.777 2.15 2.148 5.63 2.148 7.78 0 1.908-1.91 2.12-4.873.636-7.016l1.842-1.82.303 2.116c.003.414.34.75.753.753.413.002.746-.332.744-.745l-.52-4.073z"-->
+                                              <!--fill-rule="evenodd"></path>-->
+                                    <!--</g>-->
+                                <!--</svg>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div></span></div>-->
+                    <!--<div class="ProfileHeader-contentFooter">-->
+                        <!--<div class="ProfileButtonGroup ProfileHeader-buttons">-->
+                            <!--<button class="Button Button--blue" type="button">&lt;!&ndash; react-text: 104 &ndash;&gt;编辑&lt;!&ndash; /react-text &ndash;&gt;-->
+                                <!--&lt;!&ndash; react-text: 105 &ndash;&gt;个人&lt;!&ndash; /react-text &ndash;&gt;&lt;!&ndash; react-text: 106 &ndash;&gt;资料-->
+                                <!--&lt;!&ndash; /react-text &ndash;&gt;</button>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="">
+            <div class="List-item">
+                <div class="List-itemMeta">
+                    <div class="ActivityItem-meta">
+                        <span class="ActivityItem-metaTitle">昵称</span>
+                    </div>
+                </div>
+                <div class="ContentItem" data-za-module="QuestionItem">
+                    <h2 class="ContentItem-title"><a href="#">未命名</a>
+                    </h2></div>
+            </div>
+            <div class="List-item">
+                <div class="List-itemMeta">
+                    <div class="ActivityItem-meta">
+                        <span class="ActivityItem-metaTitle">头戴</span>
+                    </div>
+                </div>
+                <div class="ContentItem" data-za-module="QuestionItem">
+                    <h2 class="ContentItem-title"><a href="#">？？？</a>
+                    </h2></div>
+            </div>
+            <div class="List-item">
+                <div class="List-itemMeta">
+                    <div class="ActivityItem-meta">
+                        <span class="ActivityItem-metaTitle">身穿</span>
+                    </div>
+                </div>
+                <div class="ContentItem" data-za-module="QuestionItem">
+                    <h2 class="ContentItem-title"><a href="#">？？？</a>
+                    </h2></div>
+            </div>
+            <div class="List-item">
+                <div class="List-itemMeta">
+                    <div class="ActivityItem-meta">
+                        <span class="ActivityItem-metaTitle">鞋</span>
+                    </div>
+                </div>
+                <div class="ContentItem" data-za-module="QuestionItem">
+                    <h2 class="ContentItem-title"><a href="#">？？？</a>
+                    </h2></div>
+            </div>
+            <div class="List-item">
+                <div class="List-itemMeta">
+                    <div class="ActivityItem-meta">
+                        <span class="ActivityItem-metaTitle">戒指</span>
+                    </div>
+                </div>
+                <div class="ContentItem" data-za-module="QuestionItem">
+                    <h2 class="ContentItem-title"><a href="#">？？？</a>
+                    </h2></div>
+            </div>
+
+            <div class="List-item">
+                <div class="List-itemMeta">
+                    <div class="ActivityItem-meta">
+                        <span class="ActivityItem-metaTitle">腰带</span>
+                    </div>
+                </div>
+                <div class="ContentItem" data-za-module="QuestionItem">
+                    <h2 class="ContentItem-title"><a href="#">？？？</a>
+                    </h2></div>
+            </div>
+
+            <div class="List-item">
+                <div class="List-itemMeta">
+                    <div class="ActivityItem-meta">
+                        <span class="ActivityItem-metaTitle">价格</span>
+                    </div>
+                </div>
+                <div class="ContentItem" data-za-module="QuestionItem">
+                    <h2 class="ContentItem-title"><a href="#">？？？</a>
+                    </h2></div>
+            </div>
+
+            <div class="List-item">
+                <div class="List-itemMeta">
+                    <div class="ActivityItem-meta">
+                        <span class="ActivityItem-metaTitle">攻击</span>
+                    </div>
+                </div>
+                <div class="ContentItem" data-za-module="QuestionItem">
+                    <h2 class="ContentItem-title"><a href="#">？？？</a>
+                    </h2></div>
+            </div>
+
+            <div class="List-item">
+                <div class="List-itemMeta">
+                    <div class="ActivityItem-meta">
+                        <span class="ActivityItem-metaTitle">防御</span>
+                    </div>
+                </div>
+                <div class="ContentItem" data-za-module="QuestionItem">
+                    <h2 class="ContentItem-title"><a href="#">？？？</a>
+                    </h2></div>
+            </div>
+
+
+            <div class="List-item">
+                <div class="List-itemMeta">
+                    <div class="ActivityItem-meta">
+                        <span class="ActivityItem-metaTitle">速度</span>
+                    </div>
+                </div>
+                <div class="ContentItem" data-za-module="QuestionItem">
+                    <h2 class="ContentItem-title"><a href="#">？？？</a>
+                    </h2></div>
+            </div>
+
+            <div class="List-item">
+                <div class="List-itemMeta">
+                    <div class="ActivityItem-meta">
+                        <span class="ActivityItem-metaTitle">佩戴农具武器</span>
+                    </div>
+                </div>
+                <div class="ContentItem" data-za-module="QuestionItem">
+                    <h2 class="ContentItem-title"><a href="#">？？？</a>
+                    </h2></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="switchNZ" class="hide">
+        <div class="List-header">
+            <h4 class="List-headerText">
+                <span><!-- react-text: 261 -->所拥有农庄<!-- /react-text --></span>
+            </h4>
+
+            <div class="List-headerOptions"></div>
+        </div>
+
+    </div>
+
+    <div id="switchCT" class="hide">
+        <div class="List-header">
+            <h4 class="List-headerText">
+                <span><!-- react-text: 261 -->菜摊信息<!-- /react-text --></span>
+            </h4>
+
+            <div class="List-headerOptions"></div>
+        </div>
+
+    </div>
+
+</div>
+<script type="text/javascript">
+    $("#Profile-base").click(function () {
+        $("#Profile-guyongbin").removeClass("is-active");
+        $("#Profile-nongzhuang").removeClass("is-active");
+        $("#Profile-caitan").removeClass("is-active");
+        $("#switchGY").removeClass("show").addClass("hide");
+        $("#Profile-base").addClass("is-active");
+        $("#switchNZ").removeClass("show").addClass("hide");
+        $("#switchCT").removeClass("show").addClass("hide");
+        $("#switchBase").removeClass("hide").addClass("show");
+    });
+    $("#Profile-guyongbin").click(function () {
+        $("#Profile-base").removeClass("is-active");
+        $("#Profile-nongzhuang").removeClass("is-active");
+        $("#Profile-caitan").removeClass("is-active");
+        $("#Profile-guyongbin").addClass("is-active");
+        $("#switchNZ").removeClass("show").addClass("hide");
+        $("#switchCT").removeClass("show").addClass("hide");
+        $("#switchBase").removeClass("show").addClass("hide");
+        $("#switchGY").removeClass("hide").addClass("show");
+    });
+    $("#Profile-nongzhuang").click(function () {
+        $("#Profile-base").removeClass("is-active");
+        $("#Profile-guyongbin").removeClass("is-active");
+        $("#Profile-caitan").removeClass("is-active");
+        $("#Profile-nongzhuang").addClass("is-active");
+        $("#switchGY").removeClass("show").addClass("hide");
+        $("#switchNZ").removeClass("hide").addClass("show");
+        $("#switchCT").removeClass("show").addClass("hide");
+        $("#switchBase").removeClass("show").addClass("hide");
+    });
+    $("#Profile-caitan").click(function () {
+        $("#Profile-base").removeClass("is-active");
+        $("#Profile-nongzhuang").removeClass("is-active");
+        $("#Profile-guyongbin").removeClass("is-active");
+        $("#Profile-caitan").addClass("is-active");
+        $("#switchNZ").removeClass("show").addClass("hide");
+        $("#switchCT").removeClass("hide").addClass("show");
+        $("#switchBase").removeClass("show").addClass("hide");
+        $("#switchGY").removeClass("show").addClass("hide");
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="springmvcfirst1208:Web exploded">
+    <output-path>$PROJECT_DIR$/classes/artifacts/springmvcfirst1208_Web_exploded</output-path>
+    <root id="root">
+      <element id="archive" name="archive.jar">
+        <element id="directory" name="WEB-INF">
+          <element id="directory" name="classes">
+            <element id="module-output" name="springmvcfirst1208" />
+          </element>
+        </element>
+        <element id="javaee-facet-resources" facet="springmvcfirst1208/web/Web" />
+      </element>
+    </root>
+  </artifact>
+</component>

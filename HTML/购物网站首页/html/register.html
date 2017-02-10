@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>登录界面</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Demo"/>
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/style2.css" rel="stylesheet" type="text/css" media="all" />
+<script>
+	function clear(){
+		document.getElementById("login").valueOf().value=" ";
+		document.getElementById("pass1").valueOf().value=" ";
+		document.getElementById("pass2").valueOf().value=" ";
+	}
+</script>
+</head>
+
+<body>
+
+	<div class="header">
+		<h1 style="font-family:'test';">注册</h1>
+	</div>
+		<div class="mail-form shadow">
+			<form>
+				<input type="text" id="login" placeholder="点击此处输入帐号..." required="" />
+				<input type="password"  id="pass1" class="pass" placeholder="点击此处输入密码..." required=""/>
+				<input type="password" id="pass2" class="pass" placeholder="再次输入密码..." required="" style="padding-top: 0;margin-top: 0;"/>
+				<input type="submit" value="注册"><input type="submit" value="重置" style="margin-left: 10px;" onclick="clear()">
+			</form>
+		</div>
+
+	<div class="footer">
+	<p><a href="index.html" style="color: white">首页</a>© 2016 Kalon Login form. All Rights Reserved |版权所有</p>
+	</div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜地</title>
+    <link rel="stylesheet" type="text/css" href="css/vegetable.css" >
+
+    <article class="wrap">
+        <header>
+            <div class="bg-img">
+                <img src="img/bg.jpeg" >
+            </div>
+        </header>
+    </article>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        function touser(){
+            window.location.href="userinfo.html";
+        }
+    </script>
+</head>
+<body style="overflow-x: hidden;overflow-y: hidden">
+<body>
+<input class="discover" type="button" value="被发现" />
+<!--<div class="discover">-->
+    <!--<a id="content_box_right_notice" class="content_box_right_notice"-->
+       <!--style="background:url('images/noticeFindThief1.png') no-repeat;"></a>-->
+    <!--&lt;!&ndash;连接到下一个页面&ndash;&gt;-->
+    <!--<a class="content_box_right_moveTo"-->
+       <!--style="background:url('./img/discovery.png') no-repeat;" href="javascript:;"></a>-->
+<!--</div>-->
+<div role="navigation" class="zu-top" data-za-module="TopNavBar">
+    <div class="zg-wrap modal-shifting clearfix" id="zh-top-inner">
+        <div class="info-main">
+            <input type="button" class="zu-top-add-question" id="userinfo" value="个人信息" onclick="touser()">
+            <ul class="info">
+                <li class="info-li">体力：xx</li>
+                <li class="info-li">金币：xx</li>
+                <li class="info-li">钻石：xx（1钻=1元=100金币）</li>
+                <li class="info-li">等级：xx</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <ul class="info">
+        <li class="info-li" ><input type="button" value="公社" class="j-button" style="cursor: pointer"/></li>
+        <li class="info-li" ><input type="button" value="排行榜" class="j-button" style="cursor: pointer"/></li>
+        <li class="info-li" ><input type="button" value="背包" class="j-button" style="cursor: pointer"/></li>
+        <li class="info-li" ><input type="button" value="强化道具" class="j-button" style="cursor: pointer"/></li>
+        <li class="info-li" ><input type="button" value="任务" class="j-button" style="cursor: pointer"/></li>
+    </ul>
+</div>
+
+</body>
+</html>

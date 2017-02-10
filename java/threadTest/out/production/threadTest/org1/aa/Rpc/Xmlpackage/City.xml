@@ -1,0 +1,3 @@
+<interface modify="public" package="Rpc" name="City">
+    <Method name="ResWeather" retype="String" modifyname="city"  modifitype="int"/>
+</interface>
