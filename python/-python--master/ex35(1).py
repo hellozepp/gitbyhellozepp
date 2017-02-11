@@ -1,4 +1,5 @@
-﻿from sys import exit
+﻿#coding=utf-8
+from sys import exit
 
 q = "*" * 20
 

@@ -7,3 +7,5 @@ script, from_file, to_file = argv, from_file, to_file
 input = open(from_file) 
 output = open(to_file, 'a')
 output.write(input.read())
+output.close()
+input.close()

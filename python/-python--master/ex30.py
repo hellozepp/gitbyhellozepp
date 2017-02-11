@@ -1,7 +1,11 @@
+#coding= utf-8
 people = 30
 cars = 40
 buses = 15
-
+#not 非，
+print not True
+a= not 1
+print a
 if cars > people:
     print "We should take the cars."
 elif cars < people:

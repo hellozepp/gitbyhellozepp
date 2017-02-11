@@ -58,7 +58,7 @@ list1.extend(list2)
 print list1
 list1.extend("aaa")#自动转化成列表
 #[1, 2, 3, 3, 5, 6, 'a', 'a', 'a']
-list1.extend([1])
+list1.extend([1,2])
 # list1.extend(-1.35) #TypeError: 'float' object is not iterable
 # list1.extend(134)
 print list1
