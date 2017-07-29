@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="com.springsource.org.apache.log4j-1.2.15 (3)">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/JDBCTemplate/web/lib/com.springsource.org.apache.log4j-1.2.15.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

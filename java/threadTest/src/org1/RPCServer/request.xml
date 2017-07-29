@@ -1,3 +1,0 @@
-  <invoke id="5fe8de5c-e332-4b0b-887b-d00d678af4d9" class="Weather" method="getWeather">
-        <modified name="北京"/>
-    </invoke>

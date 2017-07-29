@@ -1,6 +1,0 @@
-<class package="org" name="Person">
-    <attrs>
-        <attr name="name" type="String" default="aaa" />
-        <attr name="password" type="String" default="aaa"/>
-    </attrs>
-</class>
