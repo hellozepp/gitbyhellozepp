@@ -1,0 +1,4 @@
+docker pull busybox
+docker run -d busybox top -b
+docekr export -o busybox.tar <容器的ID>
+然后将其解压缩出来，就是一个完整的linux文件系统

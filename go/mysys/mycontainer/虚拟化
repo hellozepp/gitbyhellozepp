@@ -1,0 +1,48 @@
+本包下的例子需要root权限执行，因此需要将项目拷贝到gopath 然后go install得到最后的可执行文件 然后再sudo执行
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+Namespaces
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+Linux内核实现了namespace，进而实现了轻量级虚拟化服务，在同一个namespace下的进程可以感知彼此的变化，
+但是不能看到其他的进程，从而达到了环境隔离的目的。
+可以通过ls -l /proc/$$/ns查看当前进程指向的namespace编号
+
+
+namespace有6项隔离：
+UTS(Unix Time-sharing System, 主机和域名)
+IPC(InterProcess Comms, 信号量、消息队列和共享内存)
+PID(Process IDs, 进程编号)
+Network(网络设备，网络栈，端口等)
+Mount(挂载点[文件系统])
+User(用户和用户组)。
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+Cgroups
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+cgroups可以用于限制namespace隔离起来的资源，为资源设置权重，计算使用量，操控任务启停
+
+Cgroups组件
+cgroup: cgroup是对进程分组管理的一种机制，一个cgroup包含一组进程，并可以在这个cgroup上增加Subsystem的配置
+Subsystem: 资源控制的模块，包括
+    blkio： 块设备io控制
+    cpu：CPU调度策略
+    cpuacct: 进程的CPU占用
+    cpuset: 进程可使用的CPU和内存
+    devices: 控制进程对内存的访问
+    freezer: 挂起和恢复进程
+    memory: 控制进程的内存占用
+    net_cls: 将网络包分类，使traffic controller可以区分出网络包来自哪个cgroup并做限流和监控
+    net_prio: 设置进程产生的网络流量的优先级
+    ns：使cgroup中的进程在新的namespace中fork新进程时创建出一个新的cgroup(包含新的namespace中的进程)
+hierarchy: 将一组cgroup变成树状结构，便于Cgroups继承。
+
+
+每个subsystem会关联到定义了相应限制的cgroup上，并对这个cgroup中的进程做相应的限制和控制，这些subsystem是逐步合并到内核中的，
+如何看到当前的内核支持哪些subsystem呢？可以安装cgroup的命令行工具(apt-get install cgroup-bin)，
+然后通过lssubsys看到kernel支持的subsystem。
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+简单的说namespace相当于画了个无形的隔离圈圈，而cgroups限制了这个被隔离的圈圈对资源的总体占用量
+
+
+
