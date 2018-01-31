@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>道具雇员店</title>
+    <link type="text/css" rel="stylesheet" href="css/farmshop1.css">
+    <script type="text/javascript" src="js/farmshop.js"></script>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+<div id="notice" class="notice">
+    <div id="notice-tit" class="notice-tit" style="background-color: #000000">
+        <ul>
+            <li>
+                <a id="ypshop" href="dragEmployeeShop.html"style="color: #FFFFFF;">药品</a>
+            </li>
+            <li>
+                <a href="strengthenprop.html"style="color: #FFFFFF;">强化道具</a>
+            </li>
+        </ul>
+    </div>
+    <div id="notice-con" class="notice-con" style="  background-color: #1D140F;">
+        <!--每一个div都是一个选项卡-->
+        <div class="mod" id="mod1" style="display:none">
+            <ul>
+                <li>
+                    <a href="#"><img src="img/f1.png"/></a>
+                </li>
+                <li>
+                    <a href="#"> <img src="img/f2.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/f3.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/f4.png"/></a>
+                </li>
+                <li>
+                    <a href="#"> <img src="img/f5.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/f6.png"/></a>
+                </li>
+                <li>
+                    <a href="#"> <img src="img/f7.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/f8.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/f9.png"/></a>
+                </li>
+            </ul>
+        </div>
+        <div class="mod" id="mod2" style="display:none">
+            <ul>
+                <li>
+                    <a href="#"><img src="img/f2.png"/></a>
+                </li>
+                <li>
+                    <a href="#"> <img src="img/f2.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/f3.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/f4.png"/></a>
+                </li>
+                <li>
+                    <a href="#"> <img src="img/f5.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/f6.png"/></a>
+                </li>
+                <li>
+                    <a href="#"> <img src="img/f7.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/f8.png"/></a>
+                </li>
+                <li>
+                    <a href="#"><img src="img/f9.png"/></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- 个人金币和钻石数量的展示，以及购买金币按钮 -->
+<div id="information" class="information">
+    <table style="background-color: #1D140F">
+        <tr>
+            <td><font style="color: #FFFFFF;">金币数:</font></td>
+            <td rowspan="2" id="selectpageNum">
+            </td>
+            <td rowspan="2"><a href="recharge.html"><img src="img/cz.png" style="float: right"></a></td>
+        </tr>
+        <tr>
+            <td><font style="color: #FFFFFF;">钻石数:</font></td>
+        </tr>
+    </table>
+</div>
+<script>
+    $(document).ready(function () {
+        var pageNum = 1;
+
+        //总页数
+        var pagecount =0;
+        $.ajax({
+            type: "post",
+            url: "/drugshop/selectDrugCount.from",
+            dataType: "html",
+            success: function (msg) {
+                if(msg=="0"){
+                    alert("count page number Error :db is null!");
+                }
+                else{
+                    pagecount = msg;
+                }
+            }
+        })
+        //获取第一页商品信息
+        $.ajax({
+            type: "post",
+            url: "/drugshop/showDrugfirstPageInfo.from?pageNum="+pageNum,
+            dataType: "html",
+            success: function (msg) {
+                var result="";
+                if(msg=="0"){
+                    alert("select page content Error :db is null!");
+                }
+                else{
+                    var LiLIst=msg.split("!1@");
+                    var LiSize=LiLIst.length-1;
+                    for(var i=0;i<LiSize;i++){
+                        var Single=LiLIst[i].split("!$");
+                        result+='<li> <a class="ypname">ypname:'+Single[3]+'</a>' +
+                                'ypPrice:<a class="ypPrice">'+Single[5]+'ypDescription:<a class="ypDescription">'+Single[7]+'</a></a><a href="#"><img src="img/f2.png"/></a> </li>';
+
+                    }
+                    $("#mod1 ul").html(result);
+                    $("#selectpageNum").html(' <a href="#####" id="beforePage">上一页</a> <span   id="pageNumber">'+pageNum+' / '+pagecount+'</span> <a id="nextPage" href="#####">下一页</a>');
+
+                }
+            }
+        })
+//        下一页
+//        $('#nextPage').click(
+//            $.ajax({
+//                type: "post",
+//                url: "/drugshop/showDrugfirstPageInfo.from?pageNum="+(++pageNum),
+//                dataType: "html",
+//                success: function (msg) {
+//                    var result="";
+//                    if(msg=="0"){
+//                        alert("db is null!");
+//                    }
+//                    else{
+//                        var LiLIst=msg.split("!1@");
+//                        var LiSize=LiLIst.length-1;
+//                        for(var i=0;i<LiSize;i++){
+//                            var Single=LiLIst[i].split("!$");
+//                            result+='<li> <a class="ypname">ypname:'+Single[3]+'</a>' +
+//                                'ypPrice:<a class="ypPrice">'+Single[5]+'ypDescription:<a class="ypDescription">'+Single[7]+'</a></a><a href="#"><img src="img/f2.png"/></a> </li>';
+//
+//                        }
+//                        $("#mod1 ul").html(result);
+//                        if(pagecount<=pageNum){
+//                            $("#selectpageNum").html(' <a href="#####" id="beforePage">上一页</a> <span   id="pageNumber">'+pageNum+' / '+pagecount+'</span>');
+//
+//                        }else {
+//                        $("#selectpageNum").html(' <a href="#####" id="beforePage">上一页</a> <span   id="pageNumber">'+pageNum+' / '+pagecount+'</span> <a id="nextPage" href="#####">下一页</a>');
+//                        }
+//                    }
+//                }
+//            })
+//        )
+
+    })
+</script>
+</body>
+</html>

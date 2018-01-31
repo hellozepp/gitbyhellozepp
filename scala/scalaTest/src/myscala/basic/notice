@@ -1,0 +1,6 @@
+3.定义常量用val,定义变量用var
+
+  通过val声明的只会生成getter，而var会生成setter,getter
+  4.java中的++ i和i ++在Scala里不起作用
+PreDif 里面引入了常用的scala的隐式转换，先当于java.lang 不用自己导包
+RichInt int转成range ；1 to 10

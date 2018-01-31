@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lakefarm.mapper.GrowPlantsMapper" >
+  <resultMap id="BaseResultMap" type="com.lakefarm.pojo.GrowPlants" >
+    <id column="zz_id" property="zzId" jdbcType="INTEGER" />
+    <result column="zz_type" property="zzType" jdbcType="VARCHAR" />
+    <result column="zz_name" property="zzName" jdbcType="VARCHAR" />
+    <result column="zz_growntime" property="zzGrowntime" jdbcType="INTEGER" />
+    <result column="zz_price" property="zzPrice" jdbcType="INTEGER" />
+    <result column="zz_description" property="zzDescription" jdbcType="VARCHAR" />
+    <result column="zz_minplantcount" property="zzMinplantcount" jdbcType="INTEGER" />
+    <result column="zz_sicktype" property="zzSicktype" jdbcType="VARCHAR" />
+    <result column="zz_icon" property="zzIcon" jdbcType="VARCHAR" />
+    <result column="zz_production" property="zzProduction" jdbcType="INTEGER" />
+    <result column="zz_singlehfuse" property="zzSinglehfuse" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    zz_id, zz_type, zz_name, zz_growntime, zz_price, zz_description, zz_minplantcount, 
+    zz_sicktype, zz_icon, zz_production, zz_singlehfuse
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lakefarm.pojo.GrowPlantsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from grow_plants
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from grow_plants
+    where zz_id = #{zzId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from grow_plants
+    where zz_id = #{zzId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lakefarm.pojo.GrowPlantsExample" >
+    delete from grow_plants
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lakefarm.pojo.GrowPlants" >
+    insert into grow_plants (zz_id, zz_type, zz_name, 
+      zz_growntime, zz_price, zz_description, 
+      zz_minplantcount, zz_sicktype, zz_icon, 
+      zz_production, zz_singlehfuse)
+    values (#{zzId,jdbcType=INTEGER}, #{zzType,jdbcType=VARCHAR}, #{zzName,jdbcType=VARCHAR}, 
+      #{zzGrowntime,jdbcType=INTEGER}, #{zzPrice,jdbcType=INTEGER}, #{zzDescription,jdbcType=VARCHAR}, 
+      #{zzMinplantcount,jdbcType=INTEGER}, #{zzSicktype,jdbcType=VARCHAR}, #{zzIcon,jdbcType=VARCHAR}, 
+      #{zzProduction,jdbcType=INTEGER}, #{zzSinglehfuse,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lakefarm.pojo.GrowPlants" >
+    insert into grow_plants
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="zzId != null" >
+        zz_id,
+      </if>
+      <if test="zzType != null" >
+        zz_type,
+      </if>
+      <if test="zzName != null" >
+        zz_name,
+      </if>
+      <if test="zzGrowntime != null" >
+        zz_growntime,
+      </if>
+      <if test="zzPrice != null" >
+        zz_price,
+      </if>
+      <if test="zzDescription != null" >
+        zz_description,
+      </if>
+      <if test="zzMinplantcount != null" >
+        zz_minplantcount,
+      </if>
+      <if test="zzSicktype != null" >
+        zz_sicktype,
+      </if>
+      <if test="zzIcon != null" >
+        zz_icon,
+      </if>
+      <if test="zzProduction != null" >
+        zz_production,
+      </if>
+      <if test="zzSinglehfuse != null" >
+        zz_singlehfuse,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="zzId != null" >
+        #{zzId,jdbcType=INTEGER},
+      </if>
+      <if test="zzType != null" >
+        #{zzType,jdbcType=VARCHAR},
+      </if>
+      <if test="zzName != null" >
+        #{zzName,jdbcType=VARCHAR},
+      </if>
+      <if test="zzGrowntime != null" >
+        #{zzGrowntime,jdbcType=INTEGER},
+      </if>
+      <if test="zzPrice != null" >
+        #{zzPrice,jdbcType=INTEGER},
+      </if>
+      <if test="zzDescription != null" >
+        #{zzDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="zzMinplantcount != null" >
+        #{zzMinplantcount,jdbcType=INTEGER},
+      </if>
+      <if test="zzSicktype != null" >
+        #{zzSicktype,jdbcType=VARCHAR},
+      </if>
+      <if test="zzIcon != null" >
+        #{zzIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="zzProduction != null" >
+        #{zzProduction,jdbcType=INTEGER},
+      </if>
+      <if test="zzSinglehfuse != null" >
+        #{zzSinglehfuse,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lakefarm.pojo.GrowPlantsExample" resultType="java.lang.Integer" >
+    select count(*) from grow_plants
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update grow_plants
+    <set >
+      <if test="record.zzId != null" >
+        zz_id = #{record.zzId,jdbcType=INTEGER},
+      </if>
+      <if test="record.zzType != null" >
+        zz_type = #{record.zzType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zzName != null" >
+        zz_name = #{record.zzName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zzGrowntime != null" >
+        zz_growntime = #{record.zzGrowntime,jdbcType=INTEGER},
+      </if>
+      <if test="record.zzPrice != null" >
+        zz_price = #{record.zzPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.zzDescription != null" >
+        zz_description = #{record.zzDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zzMinplantcount != null" >
+        zz_minplantcount = #{record.zzMinplantcount,jdbcType=INTEGER},
+      </if>
+      <if test="record.zzSicktype != null" >
+        zz_sicktype = #{record.zzSicktype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zzIcon != null" >
+        zz_icon = #{record.zzIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zzProduction != null" >
+        zz_production = #{record.zzProduction,jdbcType=INTEGER},
+      </if>
+      <if test="record.zzSinglehfuse != null" >
+        zz_singlehfuse = #{record.zzSinglehfuse,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update grow_plants
+    set zz_id = #{record.zzId,jdbcType=INTEGER},
+      zz_type = #{record.zzType,jdbcType=VARCHAR},
+      zz_name = #{record.zzName,jdbcType=VARCHAR},
+      zz_growntime = #{record.zzGrowntime,jdbcType=INTEGER},
+      zz_price = #{record.zzPrice,jdbcType=INTEGER},
+      zz_description = #{record.zzDescription,jdbcType=VARCHAR},
+      zz_minplantcount = #{record.zzMinplantcount,jdbcType=INTEGER},
+      zz_sicktype = #{record.zzSicktype,jdbcType=VARCHAR},
+      zz_icon = #{record.zzIcon,jdbcType=VARCHAR},
+      zz_production = #{record.zzProduction,jdbcType=INTEGER},
+      zz_singlehfuse = #{record.zzSinglehfuse,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lakefarm.pojo.GrowPlants" >
+    update grow_plants
+    <set >
+      <if test="zzType != null" >
+        zz_type = #{zzType,jdbcType=VARCHAR},
+      </if>
+      <if test="zzName != null" >
+        zz_name = #{zzName,jdbcType=VARCHAR},
+      </if>
+      <if test="zzGrowntime != null" >
+        zz_growntime = #{zzGrowntime,jdbcType=INTEGER},
+      </if>
+      <if test="zzPrice != null" >
+        zz_price = #{zzPrice,jdbcType=INTEGER},
+      </if>
+      <if test="zzDescription != null" >
+        zz_description = #{zzDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="zzMinplantcount != null" >
+        zz_minplantcount = #{zzMinplantcount,jdbcType=INTEGER},
+      </if>
+      <if test="zzSicktype != null" >
+        zz_sicktype = #{zzSicktype,jdbcType=VARCHAR},
+      </if>
+      <if test="zzIcon != null" >
+        zz_icon = #{zzIcon,jdbcType=VARCHAR},
+      </if>
+      <if test="zzProduction != null" >
+        zz_production = #{zzProduction,jdbcType=INTEGER},
+      </if>
+      <if test="zzSinglehfuse != null" >
+        zz_singlehfuse = #{zzSinglehfuse,jdbcType=INTEGER},
+      </if>
+    </set>
+    where zz_id = #{zzId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lakefarm.pojo.GrowPlants" >
+    update grow_plants
+    set zz_type = #{zzType,jdbcType=VARCHAR},
+      zz_name = #{zzName,jdbcType=VARCHAR},
+      zz_growntime = #{zzGrowntime,jdbcType=INTEGER},
+      zz_price = #{zzPrice,jdbcType=INTEGER},
+      zz_description = #{zzDescription,jdbcType=VARCHAR},
+      zz_minplantcount = #{zzMinplantcount,jdbcType=INTEGER},
+      zz_sicktype = #{zzSicktype,jdbcType=VARCHAR},
+      zz_icon = #{zzIcon,jdbcType=VARCHAR},
+      zz_production = #{zzProduction,jdbcType=INTEGER},
+      zz_singlehfuse = #{zzSinglehfuse,jdbcType=INTEGER}
+    where zz_id = #{zzId,jdbcType=INTEGER}
+  </update>
+</mapper>

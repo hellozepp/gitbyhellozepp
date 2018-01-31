@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lakefarm.mapper.PersonGrowplantsMapper" >
+  <resultMap id="BaseResultMap" type="com.lakefarm.pojo.PersonGrowplants" >
+    <id column="u_id" property="uId" jdbcType="INTEGER" />
+    <id column="zz_id" property="zzId" jdbcType="INTEGER" />
+    <result column="zz_count" property="zzCount" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    u_id, zz_id, zz_count
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lakefarm.pojo.PersonGrowplantsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from person_growplants
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.lakefarm.pojo.PersonGrowplantsKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from person_growplants
+    where u_id = #{uId,jdbcType=INTEGER}
+      and zz_id = #{zzId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.lakefarm.pojo.PersonGrowplantsKey" >
+    delete from person_growplants
+    where u_id = #{uId,jdbcType=INTEGER}
+      and zz_id = #{zzId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lakefarm.pojo.PersonGrowplantsExample" >
+    delete from person_growplants
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lakefarm.pojo.PersonGrowplants" >
+    insert into person_growplants (u_id, zz_id, zz_count
+      )
+    values (#{uId,jdbcType=INTEGER}, #{zzId,jdbcType=INTEGER}, #{zzCount,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lakefarm.pojo.PersonGrowplants" >
+    insert into person_growplants
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uId != null" >
+        u_id,
+      </if>
+      <if test="zzId != null" >
+        zz_id,
+      </if>
+      <if test="zzCount != null" >
+        zz_count,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uId != null" >
+        #{uId,jdbcType=INTEGER},
+      </if>
+      <if test="zzId != null" >
+        #{zzId,jdbcType=INTEGER},
+      </if>
+      <if test="zzCount != null" >
+        #{zzCount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lakefarm.pojo.PersonGrowplantsExample" resultType="java.lang.Integer" >
+    select count(*) from person_growplants
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update person_growplants
+    <set >
+      <if test="record.uId != null" >
+        u_id = #{record.uId,jdbcType=INTEGER},
+      </if>
+      <if test="record.zzId != null" >
+        zz_id = #{record.zzId,jdbcType=INTEGER},
+      </if>
+      <if test="record.zzCount != null" >
+        zz_count = #{record.zzCount,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update person_growplants
+    set u_id = #{record.uId,jdbcType=INTEGER},
+      zz_id = #{record.zzId,jdbcType=INTEGER},
+      zz_count = #{record.zzCount,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lakefarm.pojo.PersonGrowplants" >
+    update person_growplants
+    <set >
+      <if test="zzCount != null" >
+        zz_count = #{zzCount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where u_id = #{uId,jdbcType=INTEGER}
+      and zz_id = #{zzId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lakefarm.pojo.PersonGrowplants" >
+    update person_growplants
+    set zz_count = #{zzCount,jdbcType=INTEGER}
+    where u_id = #{uId,jdbcType=INTEGER}
+      and zz_id = #{zzId,jdbcType=INTEGER}
+  </update>
+</mapper>

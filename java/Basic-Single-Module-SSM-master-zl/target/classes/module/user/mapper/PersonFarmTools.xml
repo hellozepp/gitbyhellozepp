@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lakefarm.mapper.PersonFarmToolsMapper">
+    <resultMap id="getPersonFarmTools" type="com.lakefarm.pojo.PersonFarmTools">
+        <id column="u_id" property="u_id"/>
+        <result property="nj_id" column="nj_id"/>
+        <result property="nj_count" column="nj_count"/>
+    </resultMap>
+    <select id="findByU_Id" resultMap="getPersonFarmTools">
+        select * from person_farmtools  where u_id=#{u_id};
+    </select>
+</mapper>

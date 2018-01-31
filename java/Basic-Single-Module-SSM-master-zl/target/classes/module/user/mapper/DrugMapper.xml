@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lakefarm.mapper.DrugMapper" >
+  <resultMap id="BaseResultMap" type="com.lakefarm.pojo.Drug" >
+    <id column="yp_id" property="ypId" jdbcType="INTEGER" />
+    <result column="yp_name" property="ypName" jdbcType="VARCHAR" />
+    <result column="yp_price" property="ypPrice" jdbcType="INTEGER" />
+    <result column="yp_description" property="ypDescription" jdbcType="VARCHAR" />
+    <result column="yp_redheal" property="ypRedheal" jdbcType="INTEGER" />
+    <result column="yp_blueheal" property="ypBlueheal" jdbcType="INTEGER" />
+    <result column="yp_speed" property="ypSpeed" jdbcType="INTEGER" />
+    <result column="yp_icon" property="ypIcon" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    yp_id, yp_name, yp_price, yp_description, yp_redheal, yp_blueheal, yp_speed, yp_icon
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.lakefarm.pojo.DrugExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from drug
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from drug
+    where yp_id = #{ypId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from drug
+    where yp_id = #{ypId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lakefarm.pojo.DrugExample" >
+    delete from drug
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lakefarm.pojo.Drug" >
+    insert into drug (yp_id, yp_name, yp_price, 
+      yp_description, yp_redheal, yp_blueheal, 
+      yp_speed, yp_icon)
+    values (#{ypId,jdbcType=INTEGER}, #{ypName,jdbcType=VARCHAR}, #{ypPrice,jdbcType=INTEGER}, 
+      #{ypDescription,jdbcType=VARCHAR}, #{ypRedheal,jdbcType=INTEGER}, #{ypBlueheal,jdbcType=INTEGER}, 
+      #{ypSpeed,jdbcType=INTEGER}, #{ypIcon,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lakefarm.pojo.Drug" >
+    insert into drug
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ypId != null" >
+        yp_id,
+      </if>
+      <if test="ypName != null" >
+        yp_name,
+      </if>
+      <if test="ypPrice != null" >
+        yp_price,
+      </if>
+      <if test="ypDescription != null" >
+        yp_description,
+      </if>
+      <if test="ypRedheal != null" >
+        yp_redheal,
+      </if>
+      <if test="ypBlueheal != null" >
+        yp_blueheal,
+      </if>
+      <if test="ypSpeed != null" >
+        yp_speed,
+      </if>
+      <if test="ypIcon != null" >
+        yp_icon,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ypId != null" >
+        #{ypId,jdbcType=INTEGER},
+      </if>
+      <if test="ypName != null" >
+        #{ypName,jdbcType=VARCHAR},
+      </if>
+      <if test="ypPrice != null" >
+        #{ypPrice,jdbcType=INTEGER},
+      </if>
+      <if test="ypDescription != null" >
+        #{ypDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="ypRedheal != null" >
+        #{ypRedheal,jdbcType=INTEGER},
+      </if>
+      <if test="ypBlueheal != null" >
+        #{ypBlueheal,jdbcType=INTEGER},
+      </if>
+      <if test="ypSpeed != null" >
+        #{ypSpeed,jdbcType=INTEGER},
+      </if>
+      <if test="ypIcon != null" >
+        #{ypIcon,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lakefarm.pojo.DrugExample" resultType="java.lang.Integer" >
+    select count(*) from drug
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update drug
+    <set >
+      <if test="record.ypId != null" >
+        yp_id = #{record.ypId,jdbcType=INTEGER},
+      </if>
+      <if test="record.ypName != null" >
+        yp_name = #{record.ypName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ypPrice != null" >
+        yp_price = #{record.ypPrice,jdbcType=INTEGER},
+      </if>
+      <if test="record.ypDescription != null" >
+        yp_description = #{record.ypDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ypRedheal != null" >
+        yp_redheal = #{record.ypRedheal,jdbcType=INTEGER},
+      </if>
+      <if test="record.ypBlueheal != null" >
+        yp_blueheal = #{record.ypBlueheal,jdbcType=INTEGER},
+      </if>
+      <if test="record.ypSpeed != null" >
+        yp_speed = #{record.ypSpeed,jdbcType=INTEGER},
+      </if>
+      <if test="record.ypIcon != null" >
+        yp_icon = #{record.ypIcon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update drug
+    set yp_id = #{record.ypId,jdbcType=INTEGER},
+      yp_name = #{record.ypName,jdbcType=VARCHAR},
+      yp_price = #{record.ypPrice,jdbcType=INTEGER},
+      yp_description = #{record.ypDescription,jdbcType=VARCHAR},
+      yp_redheal = #{record.ypRedheal,jdbcType=INTEGER},
+      yp_blueheal = #{record.ypBlueheal,jdbcType=INTEGER},
+      yp_speed = #{record.ypSpeed,jdbcType=INTEGER},
+      yp_icon = #{record.ypIcon,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lakefarm.pojo.Drug" >
+    update drug
+    <set >
+      <if test="ypName != null" >
+        yp_name = #{ypName,jdbcType=VARCHAR},
+      </if>
+      <if test="ypPrice != null" >
+        yp_price = #{ypPrice,jdbcType=INTEGER},
+      </if>
+      <if test="ypDescription != null" >
+        yp_description = #{ypDescription,jdbcType=VARCHAR},
+      </if>
+      <if test="ypRedheal != null" >
+        yp_redheal = #{ypRedheal,jdbcType=INTEGER},
+      </if>
+      <if test="ypBlueheal != null" >
+        yp_blueheal = #{ypBlueheal,jdbcType=INTEGER},
+      </if>
+      <if test="ypSpeed != null" >
+        yp_speed = #{ypSpeed,jdbcType=INTEGER},
+      </if>
+      <if test="ypIcon != null" >
+        yp_icon = #{ypIcon,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where yp_id = #{ypId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lakefarm.pojo.Drug" >
+    update drug
+    set yp_name = #{ypName,jdbcType=VARCHAR},
+      yp_price = #{ypPrice,jdbcType=INTEGER},
+      yp_description = #{ypDescription,jdbcType=VARCHAR},
+      yp_redheal = #{ypRedheal,jdbcType=INTEGER},
+      yp_blueheal = #{ypBlueheal,jdbcType=INTEGER},
+      yp_speed = #{ypSpeed,jdbcType=INTEGER},
+      yp_icon = #{ypIcon,jdbcType=VARCHAR}
+    where yp_id = #{ypId,jdbcType=INTEGER}
+  </update>
+</mapper>

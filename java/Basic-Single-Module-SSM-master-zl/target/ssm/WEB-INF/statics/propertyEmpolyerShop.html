@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <link href="./css/map_content.css" rel="stylesheet" type="text/css" />
+    <script src="./js/bootstrap.js" type="javascript"></script>
+    <script src="./js/jquery.min.js" type="javascript"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <title>道具农雇店</title>
+    <!--该页面可作为隐藏页在农田页面激活-->
+    <script type="text/javascript">
+        $(document).ready(
+            function () {
+                $(".pes_page2").hide();
+            $(".employer1").click(function(){
+                $(".pes_page2").show();
+            });
+            $("#pse_closeThisPage_buy").click(function(){
+                $(".pes_page2").hide();
+            });
+        })
+    </script>
+</head>
+<body>
+    <div id="pes_bg">
+        <div id="font"></div>
+        <div id="pse_closeThisPage"><a href="mainFarm.html" ></a></div>
+        <ul id="pes_bg_page">
+            <li class="page1"><a href="####" id="page1"><img  src="images/page1.png"></a></li>
+            <li class="page2"><a href="####" id="page2"><img  src="images/page2.png"> </a></li>
+        </ul>
+        <div id="pes_bg_box" >
+            <ul >
+                <li class="employer1"><a id="employer1" href="####"><img src="images/employer1.png"></a></li>
+                <li class="employer2"><a id="employer2" href="####"><img src="images/employer2.png"></a></li>
+                <li class="employer3"><a id="employer3" href="####"><img src="images/employer3.png"></a></li>
+                <li class="employer4"><a id="employer4" href="####"><img src="images/employer4.png"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="pes_page2">
+        <div class="pes_page2_box">
+            <div id="pse_buy_title"></div>
+            <div ><a href="javascript:;" ><img id="pse_closeThisPage_buy" src="images/btn_shop_empoler_buy.png"></a></div>
+            <div id="pse_buy_content">
+                <div id="pse_buy_employer2"></div>
+                <div id="pse_buy_content_text">
+                    <p style="font-size: 12pt;font-size: 12pt; width: 153px;float: left;margin: 0 0 0 12%;">
+                    农刺客：<br>
+                    普攻：扔小石头<br>
+                    魔攻：1.扔仙人球，2.飞腿<br>
+                    魔防：1.双臂交叉<br>
+                    偷盗：顺手牵羊<br>
+                    防御：60<br>
+                    魔回血：8<br>
+                    魔血回魔：无
+                    </p></div>
+            </div>
+            <div ><input type="button" id="pse_buy_content_btn" class="pse_buy_content_btn" ></div>
+        </div>
+    </div>
+</body>
+</html>

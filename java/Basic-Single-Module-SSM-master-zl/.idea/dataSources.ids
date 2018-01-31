@@ -1,0 +1,772 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - lakefarm@localhost" uuid="8ab50a74-d9e2-4568-a9d2-0802e0a8f455">
+    <database-info product="MySQL" version="5.7.17-0ubuntu0.16.04.1" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="exact"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+      <schema id="1" name="lakefarm">
+        <visible>1</visible>
+      </schema>
+      <schema id="2" name="dobehub"/>
+      <schema id="3" name="information_schema"/>
+      <schema id="4" name="mysql"/>
+      <schema id="5" name="mytestdb"/>
+      <schema id="6" name="performance_schema"/>
+      <schema id="7" name="sys"/>
+      <table id="8" parent="1" name="drug"/>
+      <table id="9" parent="1" name="employee"/>
+      <table id="10" parent="1" name="enhance_tools"/>
+      <table id="11" parent="1" name="equipment"/>
+      <table id="12" parent="1" name="farm_tools"/>
+      <table id="13" parent="1" name="farmdrug"/>
+      <table id="14" parent="1" name="farmer_base"/>
+      <table id="15" parent="1" name="fertilizer"/>
+      <table id="16" parent="1" name="grow_plants"/>
+      <table id="17" parent="1" name="manager"/>
+      <table id="18" parent="1" name="person_drug"/>
+      <table id="19" parent="1" name="person_employee"/>
+      <table id="20" parent="1" name="person_enhancetools"/>
+      <table id="21" parent="1" name="person_equipment"/>
+      <table id="22" parent="1" name="person_farmdrug"/>
+      <table id="23" parent="1" name="person_farmtools"/>
+      <table id="24" parent="1" name="person_fertilizer"/>
+      <table id="25" parent="1" name="person_growplants"/>
+      <table id="26" parent="1" name="person_vegetableplot"/>
+      <table id="27" parent="1" name="shop_drug"/>
+      <table id="28" parent="1" name="shop_employee"/>
+      <table id="29" parent="1" name="shop_enhancetools"/>
+      <table id="30" parent="1" name="shop_equipment"/>
+      <table id="31" parent="1" name="shop_farmdrug"/>
+      <table id="32" parent="1" name="shop_farmtools"/>
+      <table id="33" parent="1" name="shop_fertilizer"/>
+      <table id="34" parent="1" name="shop_growplants"/>
+      <table id="35" parent="1" name="shop_vegetableplot"/>
+      <table id="36" parent="1" name="userinfo"/>
+      <table id="37" parent="1" name="vegetable_plot"/>
+      <table id="38" parent="1" name="person_task"/>
+      <table id="39" parent="1" name="task"/>
+      <table id="40" parent="1" name="vegetable_block"/>
+      <column id="41" parent="8" name="yp_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="42" parent="8" name="yp_name">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="43" parent="8" name="yp_price">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="44" parent="8" name="yp_description">
+        <data-type>varchar(200)|0</data-type>
+      </column>
+      <column id="45" parent="8" name="yp_redheal">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="46" parent="8" name="yp_blueheal">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="47" parent="8" name="yp_speed">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="48" parent="8" name="yp_icon">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <key id="49" parent="8" name="PRIMARY">
+        <columns>yp_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="50" parent="9" name="e_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="51" parent="9" name="e_name">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="52" parent="9" name="e_typeid">
+        <mandatory>1</mandatory>
+        <data-type>varchar(10)|0</data-type>
+      </column>
+      <column id="53" parent="9" name="e_duration">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="54" parent="9" name="e_icon">
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <column id="55" parent="9" name="e_price">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <index id="56" parent="9" name="e_typeid">
+        <columns>e_typeid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="57" parent="9" name="PRIMARY">
+        <columns>e_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="58" parent="10" name="q_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="59" parent="10" name="q_name">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="60" parent="10" name="q_price">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="61" parent="10" name="q_onepromotiondefense">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="62" parent="10" name="q_onepromotionattack">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="63" parent="10" name="q_description">
+        <data-type>varchar(200)|0</data-type>
+      </column>
+      <column id="64" parent="10" name="q_icon">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <key id="65" parent="10" name="PRIMARY">
+        <columns>q_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="66" parent="11" name="zb_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="67" parent="11" name="zb_name">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="68" parent="11" name="e_typeid">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="69" parent="11" name="zb_adornposition">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="70" parent="11" name="zb_price">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="71" parent="11" name="zb_defense">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="72" parent="11" name="zb_attack">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="73" parent="11" name="zb_speed">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="74" parent="11" name="zb_description">
+        <data-type>varchar(200)|0</data-type>
+      </column>
+      <column id="75" parent="11" name="zb_icon">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="76" parent="11" name="zb_type">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <key id="77" parent="11" name="PRIMARY">
+        <columns>zb_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="78" parent="12" name="nj_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="79" parent="12" name="nj_name">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="80" parent="12" name="nj_price">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="81" parent="12" name="nj_description">
+        <data-type>varchar(200)|0</data-type>
+      </column>
+      <column id="82" parent="12" name="nj_icon">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="83" parent="12" name="nj_type">
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="84" parent="12" name="nj_oneharm">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="85" parent="12" name="nj_combatype">
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="86" parent="12" name="nj_defense">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="87" parent="12" name="nj_enhancetimes">
+        <data-type>int(5)|0</data-type>
+      </column>
+      <key id="88" parent="12" name="PRIMARY">
+        <columns>nj_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="89" parent="13" name="ny_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="90" parent="13" name="ny_type">
+        <data-type>varchar(60)|0</data-type>
+      </column>
+      <column id="91" parent="13" name="ny_name">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="92" parent="13" name="ny_price">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="93" parent="13" name="ny_description">
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <column id="94" parent="13" name="ny_zwtype">
+        <data-type>varchar(500)|0</data-type>
+      </column>
+      <column id="95" parent="13" name="ny_brand">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="96" parent="13" name="ny_icon">
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <key id="97" parent="13" name="PRIMARY">
+        <columns>ny_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="98" parent="14" name="e_typeid">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="99" parent="14" name="ng_type">
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="100" parent="14" name="ng_generalattack">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="101" parent="14" name="ng_blueattack">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="102" parent="14" name="ng_bluedefense">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="103" parent="14" name="ng_stealspeed">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="104" parent="14" name="ng_defense">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="105" parent="14" name="ng_redheal">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="106" parent="14" name="ng_blueheal">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="107" parent="14" name="ng_specialskills">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="108" parent="14" name="ng_ssdescrption">
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <column id="109" parent="14" name="ng_icon">
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <column id="110" parent="14" name="ng_skillone">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="111" parent="14" name="ng_skillonedescription">
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <column id="112" parent="14" name="ng_skilltwo">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="113" parent="14" name="ng_skilltwodescription">
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <column id="114" parent="14" name="ng_skillthree">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="115" parent="14" name="ng_skillthreedescription">
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <column id="116" parent="14" name="ng_skillthreeimg">
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <column id="117" parent="14" name="ng_skilltwoimg">
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <column id="118" parent="14" name="ng_skilloneimg">
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <column id="119" parent="14" name="ng_specialskillsimg">
+        <data-type>varchar(1000)|0</data-type>
+      </column>
+      <key id="120" parent="14" name="PRIMARY">
+        <columns>e_typeid</columns>
+        <primary>1</primary>
+      </key>
+      <column id="121" parent="15" name="hf_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="122" parent="15" name="hf_name">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="123" parent="15" name="hf_type">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="124" parent="15" name="hf_price">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="125" parent="15" name="hf_description">
+        <data-type>varchar(200)|0</data-type>
+      </column>
+      <column id="126" parent="15" name="hf_brand">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="127" parent="15" name="hf_icon">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <key id="128" parent="15" name="PRIMARY">
+        <columns>hf_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="129" parent="16" name="zz_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)|0</data-type>
+      </column>
+      <column id="130" parent="16" name="zz_type">
+        <mandatory>1</mandatory>
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="131" parent="16" name="zz_name">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="132" parent="16" name="zz_growntime">
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="133" parent="16" name="zz_price">
+        <data-type>varchar(10)|0</data-type>
+      </column>
+      <column id="134" parent="16" name="zz_description">
+        <data-type>varchar(200)|0</data-type>
+      </column>
+      <column id="135" parent="16" name="zz_minplantcount">
+        <data-type>varchar(10)|0</data-type>
+      </column>
+      <column id="136" parent="16" name="zz_sicktype">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="137" parent="16" name="zz_icon">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="138" parent="16" name="zz_production">
+        <data-type>varchar(10)|0</data-type>
+      </column>
+      <column id="139" parent="16" name="zz_singlehfuse">
+        <data-type>varchar(10)|0</data-type>
+      </column>
+      <key id="140" parent="16" name="PRIMARY">
+        <columns>zz_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="141" parent="17" name="man_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="142" parent="17" name="man_managername">
+        <data-type>varchar(45)|0</data-type>
+      </column>
+      <column id="143" parent="17" name="man_password">
+        <data-type>varchar(60)|0</data-type>
+      </column>
+      <column id="144" parent="17" name="man_identity">
+        <data-type>int(2)|0</data-type>
+      </column>
+      <key id="145" parent="17" name="PRIMARY">
+        <columns>man_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="146" parent="18" name="u_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="147" parent="18" name="yp_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="148" parent="18" name="yp_count">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="149" parent="18" name="PRIMARY">
+        <columns>u_id
+yp_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="150" parent="19" name="u_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="151" parent="19" name="e_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="152" parent="19" name="e_count">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="153" parent="19" name="PRIMARY">
+        <columns>u_id
+e_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="154" parent="20" name="u_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="155" parent="20" name="q_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="156" parent="20" name="q_count">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="157" parent="20" name="PRIMARY">
+        <columns>u_id
+q_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="158" parent="21" name="uid">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="159" parent="21" name="zb_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="160" parent="21" name="zb_count">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="161" parent="21" name="PRIMARY">
+        <columns>uid
+zb_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="162" parent="22" name="u_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="163" parent="22" name="ny_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="164" parent="22" name="ny_count">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="165" parent="22" name="PRIMARY">
+        <columns>u_id
+ny_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="166" parent="23" name="u_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="167" parent="23" name="nj_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="168" parent="23" name="nj_count">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="169" parent="23" name="PRIMARY">
+        <columns>u_id
+nj_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="170" parent="24" name="u_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="171" parent="24" name="hf_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="172" parent="24" name="hf_count">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <key id="173" parent="24" name="PRIMARY">
+        <columns>u_id
+hf_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="174" parent="25" name="uzz_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)|0</data-type>
+      </column>
+      <column id="175" parent="25" name="u_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)|0</data-type>
+      </column>
+      <column id="176" parent="25" name="zz_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)|0</data-type>
+      </column>
+      <column id="177" parent="25" name="zz_count">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="178" parent="25" name="PRIMARY">
+        <columns>uzz_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="179" parent="26" name="u_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="180" parent="26" name="c_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="181" parent="26" name="c_count">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="182" parent="26" name="PRIMARY">
+        <columns>u_id
+c_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="183" parent="27" name="yp_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="184" parent="27" name="yp_allcount">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="185" parent="27" name="PRIMARY">
+        <columns>yp_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="186" parent="28" name="e_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="187" parent="28" name="e_allcount">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="188" parent="28" name="PRIMARY">
+        <columns>e_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="189" parent="29" name="q_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="190" parent="29" name="q_allcount">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="191" parent="29" name="PRIMARY">
+        <columns>q_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="192" parent="30" name="zb_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="193" parent="30" name="zb_allcount">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="194" parent="30" name="PRIMARY">
+        <columns>zb_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="195" parent="31" name="ny_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="196" parent="31" name="ny_allcount">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="197" parent="31" name="PRIMARY">
+        <columns>ny_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="198" parent="32" name="nj_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="199" parent="32" name="nj_allcount">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="200" parent="32" name="PRIMARY">
+        <columns>nj_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="201" parent="33" name="hf_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="202" parent="33" name="hf_allconut">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="203" parent="33" name="PRIMARY">
+        <columns>hf_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="204" parent="34" name="zz_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="205" parent="34" name="zz_allcount">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="206" parent="34" name="PRIMARY">
+        <columns>zz_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="207" parent="35" name="c_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="208" parent="35" name="c_allcount">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="209" parent="35" name="PRIMARY">
+        <columns>c_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="210" parent="36" name="u_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)|0</data-type>
+      </column>
+      <column id="211" parent="36" name="u_name">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="212" parent="36" name="u_type">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="213" parent="36" name="u_diamond">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="214" parent="36" name="u_money">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="215" parent="36" name="u_grade">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="216" parent="36" name="u_area">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="217" parent="36" name="u_icon">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="218" parent="36" name="u_IdCard">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="219" parent="36" name="u_phone">
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="220" parent="36" name="u_birthdate">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="221" parent="36" name="u_description">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="222" parent="36" name="u_pwd">
+        <data-type>varchar(40)|0</data-type>
+      </column>
+      <column id="223" parent="36" name="u_vitality">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <key id="224" parent="36" name="PRIMARY">
+        <columns>u_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="225" parent="37" name="c_id">
+        <mandatory>1</mandatory>
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="226" parent="37" name="c_name">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="227" parent="37" name="c_price">
+        <data-type>int(10)|0</data-type>
+      </column>
+      <column id="228" parent="37" name="c_description">
+        <data-type>varchar(200)|0</data-type>
+      </column>
+      <column id="229" parent="37" name="c_address">
+        <data-type>varchar(30)|0</data-type>
+      </column>
+      <column id="230" parent="37" name="c_icon">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <key id="231" parent="37" name="PRIMARY">
+        <columns>c_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="232" parent="38" name="u_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)|0</data-type>
+      </column>
+      <column id="233" parent="38" name="task_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="234" parent="38" name="task_releaseTime">
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="235" parent="38" name="task_status">
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="236" parent="39" name="task_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="237" parent="39" name="task_name">
+        <data-type>varchar(45)|0</data-type>
+      </column>
+      <column id="238" parent="39" name="task_type">
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="239" parent="39" name="task_description">
+        <data-type>varchar(200)|0</data-type>
+      </column>
+      <key id="240" parent="39" name="PRIMARY">
+        <columns>task_id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="241" parent="40" name="block_id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(128)|0</data-type>
+      </column>
+      <column id="242" parent="40" name="block_zzname">
+        <data-type>varchar(100)|0</data-type>
+      </column>
+      <column id="243" parent="40" name="block_starTime">
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="244" parent="40" name="block_currentCircle">
+        <data-type>varchar(5)|0</data-type>
+      </column>
+      <column id="245" parent="40" name="block_sfchucao">
+        <data-type>varchar(1)|0</data-type>
+      </column>
+      <column id="246" parent="40" name="block_sfchuchong">
+        <data-type>varchar(1)|0</data-type>
+      </column>
+      <column id="247" parent="40" name="block_sfjiaoshui">
+        <data-type>varchar(1)|0</data-type>
+      </column>
+      <column id="248" parent="40" name="block_sfshifei">
+        <data-type>varchar(1)|0</data-type>
+      </column>
+      <column id="249" parent="40" name="c_id">
+        <data-type>varchar(128)|0</data-type>
+      </column>
+      <key id="250" parent="40" name="PRIMARY">
+        <columns>block_id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <option name="implicitConversions" value="true" />
+    <profile name="Maven 1" modules="my-rpc">
+      <parameters>
+        <parameter value="-make:transitive" />
+        <parameter value="-dependencyfile" />
+        <parameter value="$PROJECT_DIR$/target/.scala_dependencies" />
+      </parameters>
+    </profile>
+  </component>
+</project>

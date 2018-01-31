@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lakefarm.mapper.PersonTasksMapper">
+    <resultMap id="getPersonTask" type="com.lakefarm.pojo.PersonTask">
+        <id column="u_id" property="u_id"/>
+        <result property="task_id" column="task_id"/>
+        <result property="task_releaseTime" column="task_releaseTime"/>
+        <result property="task_status" column="task_status"/>
+    </resultMap>
+
+    <!--增加用户任务-->
+    <insert id="addPersonTask" parameterType="com.lakefarm.pojo.PersonTask">
+        insert into person_task values
+        (#{u_id},#{task_id},#{task_releaseTime},#{task_status});
+    </insert>
+
+    <!--删除用户任务-->
+    <delete id="deletePersonTask" parameterType="String">
+        delete from person_task where u_id=#{u_id} and task_id=#{task_id};
+    </delete>
+
+    <!--更新用户任务-->
+    <update id="updatePersonTask" parameterType="com.lakefarm.pojo.PersonTask">
+        UPDATE person_task
+        <trim prefix="set" suffixOverrides=",">
+            <if test="task_id!=null">task_id=#{task_id},</if>
+            <if test="task_releaseTime!=null">task_releaseTime=#{task_releaseTime},</if>
+            <if test="task_status!=null">task_status=#{task_status},</if>
+        </trim>
+        WHERE u_id=#{u_id}
+    </update>
+
+    <!--通过u_id获取该用户全部任务-->
+    <select id="getPersonTaskByUId" parameterType="String" resultMap="getPersonTask">
+        select u_id,task_id,task_releaseTime,task_status from person_task where u_id=#{u_id}
+    </select>
+
+    <!--通过id获取指定任务-->
+    <select id="getPersonTaskById" parameterType="String" resultMap="getPersonTask">
+        select u_id,task_id,task_releaseTime,task_status from person_task where u_id=#{u_id} and task_id=#{task_id}
+    </select>
+</mapper>

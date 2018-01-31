@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{margin:0px;padding:0px;}
+         ul li{list-style: none;}
+         a{text-decoration: none;}
+        .farmer{margin:10% auto;width:76%;display: flex;display: -webkit-flex;background-color: #227d1e;}
+        .farmerLeft{flex-grow: 6;display: flex;display: -webkit-flex;flex-direction: column;  flex-wrap: nowrap;}
+        .farmerRight{flex-grow: 1;}
+        .farmerRight ul li{line-height:35px;text-align: center;background-color:#ffffff;border: 1px solid #989696;   }
+        .farmerRight ul li a{color:#000000;}
+        .InforSendRecord{flex:1 1 auto;overflow:scroll;height: 254px;}
+        .InforSend{flex: 0 1 40px;background-color: #dddddd;  border: 1px solid #e4e6e4; font-size:0px;}
+        .InforSend span,.InforSend span a {display:inline-block;vertical-align: text-top;}
+        .InforSend span.icon,.InforSend span a{width:40px;height:100%;}
+        .inputbox{width:85%;}
+        .InforSend span input{font-size:16px; font-size: 16px;  border: none;  margin: 7px 5px 0;  padding: 4px;width:100%;}
+        .InforSend span a img{height:100%;width:100%;}
+        .Infor{width:300px;overflow: hidden;}
+        .bubbleBox{min-width:60px;min-height:65px;max-width:200px;position: relative;background-color:#ffae4e;margin-left:20px;border-radius:5px;z-index: 10;padding:10px; }
+        .bubbleBox:before{content: "";display: block;position: absolute;top:50%;margin-top:-20px;left:-20px;border:20px solid transparent;border-left: none;border-right: 20px solid #ffae4e;}
+        .personImg{float: left;width:40px;height:40px;}
+	.personImg img{width:100%;height:100%;}
+        .bubble{float:left;}
+        .Infor{margin-bottom: 20px;}
+    </style>
+    <script type="text/javascript">
+        function lsend(){
+            var text = document.getElementById("textInfor").value;
+            if(text.trim() != ""){
+                var Content = document.getElementById("InforSendRecord");
+                var Infor=document.createElement("div");
+                var personImg=document.createElement("div");
+                var bubble=document.createElement("div");
+                var bubbleBox=document.createElement("div");
+		var img=document.createElement("img");
+                Infor.className="Infor";
+                personImg.className="personImg";
+		img.src="farmer/perImg.png";
+                bubble.className="bubble";
+                bubbleBox.className="bubbleBox";
+		personImg.appendChild(img);
+                Infor.appendChild(personImg);
+                Infor.appendChild(bubble);
+                bubble.appendChild(bubbleBox);
+                bubbleBox.innerHTML = text;
+                Content.appendChild(Infor);
+            }
+        }
+        window.onkeydown = function(event){
+            if(event.keyCode == 13){
+                var text = document.getElementById("textInfor").value;
+                if(text.trim() != ""){
+                    lsend();
+                }
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+<div class="farmer">
+    <div class="farmerLeft">
+        <div class="InforSendRecord" id="InforSendRecord">
+            <div class="Infor">
+                    <div class="personImg"><img src="farmer/perImg.png"></div>
+                    <div class="bubble" >
+                        <div class="bubbleBox" >我发短信给你了我发短信给你了我发短信给你了我发短信给你了我发短信给你了我发短信给你了我发短信给你了我发短信给你了</div>
+                    </div>
+            </div>
+        </div>
+        <div class="InforSend">
+            <span class="icon"><a href="#"><img src="farmer/icon1.png" /></a></span>
+            <span class="inputbox"><input id="textInfor" type="text"/></span>
+            <span class="icon"><a href="#"><img src="farmer/icon2.png" /></a></span>
+            <span class="icon"><a href="#"><img src="farmer/icon3.png" /></a></span>
+        </div>
+    </div>
+    <div class="farmerRight">
+        <ul>
+            <li><a href="taskList.html">日常浇水</a></li>
+            <li><a href="taskList.html">日常施肥</a></li>
+            <li><a href="taskList.html">日常除草</a></li>
+            <li><a href="taskList.html">日常大棚操作</a></li>
+            <li><a href="taskList.html">日常除害</a></li>
+            <li><a href="aboutus.html">联系我们</a></li>
+            <li><a href="no_development.html">邮寄</a></li>
+            <li><a href="no_development.html">菜品上架</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lakefarm.mapper.DrugMapperCustom" >
+    <select id="selectDrugCount" resultType="Integer">
+        select COUNT(*) from shop_drug WHERE yp_allcount > 0;
+    </select>
+    <!--`yp_id` int(10) NOT NULL,-->
+    <!--`yp_name` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,-->
+    <!--`yp_price` int(10) DEFAULT NULL,-->
+    <!--`yp_description` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,-->
+    <!--`yp_redheal` int(10) DEFAULT NULL,-->
+    <!--`yp_blueheal` int(10) DEFAULT NULL,-->
+    <!--`yp_speed` int(10) DEFAULT NULL,-->
+    <!--`yp_icon` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,-->
+    <select id="selectDrugList" parameterType="com.lakefarm.pojo.DrugQueryVo"  resultType="com.lakefarm.pojo.Drug">
+        select yp_id ypId,yp_name ypName,yp_price ypPrice,yp_description ypDescription
+         ,yp_redheal ypRedheal,yp_blueheal ypBlueheal,yp_speed ypSpeed,yp_icon ypIcon from drug
+          limit #{startNum},#{cellCount}
+    </select>
+</mapper>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+  farmtools(农具店mapper文件)
+ @author pjw
+ -->
+<mapper namespace="com.lakefarm.mapper.TFarmtoolsMapper">
+	<resultMap type="com.lakefarm.pojo.Tfarmtools" id="farmtoolsResult">
+	    <id column="nj_id" property="nj_id"/>
+		<result property="nj_name" column="nj_name"/>
+		<result property="nj_price" column="nj_price"/>
+		<result property="nj_description" column="nj_description"/>
+		<result property="nj_icon" column="nj_icon"/>
+		<result property="nj_type" column="nj_type"/>
+		<result property="nj_oneharm" column="nj_oneharm"/>
+		<result property="nj_combatype" column="nj_combatype"/>
+		<result property="nj_defense" column="nj_defense"/>
+		<result property="nj_enhancetimes" column="nj_enhancetimes"/>
+	</resultMap>
+		<!--农具店的查询-->
+	<select id="selectall" parameterType="com.lakefarm.pojo.Tfarmtools" resultMap="farmtoolsResult">
+		select nj_id,nj_name,nj_price,nj_description,nj_icon,nj_type,nj_oneharm,nj_combatype,nj_defense,nj_enhancetimes from 
+		farm_tools
+	</select>
+	<!-- 查询农具店总记录数 -->
+	<select id="getTotal"  resultType="Long">
+		select count(*) from farm_tools;
+	</select>
+	
+	<!-- 添加用户 -->
+	<insert id="addFarmtools" parameterType="com.lakefarm.pojo.Tfarmtools">
+		insert into farm_tools values
+		(null,#{nj_name},#{nj_price},#{nj_description},#{nj_icon},#{nj_type},#{nj_oneharm},#{nj_combatype},#{nj_defense},#{nj_enhancetimes});
+	</insert>
+	
+	<!-- 删除用户 -->
+	<delete id="deletebyId" parameterType="Integer">
+		delete from farm_tools where nj_id=#{nj_id};
+	</delete>	
+	
+	<!-- 更新用户 -->
+	<update id="updateFarmtools" parameterType="com.lakefarm.pojo.Tfarmtools">
+		update userinfo 
+		<set>
+			<if test="nj_name!=null and nj_name!='' ">
+				nj_name=#{nj_name},
+			</if>
+			<if test="nj_price!=null and nj_price!='' ">
+				nj_price=#{nj_price},
+			</if>
+			<if test="nj_description!=null and nj_description!='' ">
+				nj_description=#{nj_description},
+			</if>
+			<if test="nj_icon!=null and nj_icon!='' ">
+				nj_icon=#{nj_icon},
+			</if>
+			<if test="nj_type!=null and nj_type!='' ">
+				nj_type=#{nj_type},
+			</if>
+			<if test="nj_oneharm!=null and nj_oneharm!='' ">
+				nj_oneharm=#{nj_oneharm}
+			</if>
+			<if test="nj_combatype!=null and nj_combatype!='' ">
+				nj_combatype=#{nj_combatype}
+			</if>
+			<if test="nj_defense!=null and nj_defense!='' ">
+				u_IdCard=#{u_IdCard}
+			</if>
+			<if test="nj_enhancetimes!=null and nj_enhancetimes!='' ">
+				nj_enhancetimes=#{nj_enhancetimes}
+			</if>
+			where nj_id=#{nj_id};
+		</set>
+	</update>
+	
+	<!-- 根据农具id查找 -->
+	<select id="findById" resultMap="farmtoolsResult" >
+		select * from farm_tools
+		<where>
+			<if test="njid!=null">
+				nj_id=#{njid}
+			</if>
+		</where>
+	</select>
+	
+	<!-- 根据农具id或农具的名字查找-->
+	<select id="findByidorName"  resultMap="farmtoolsResult" parameterType="com.lakefarm.pojo.Tfarmtools">
+	select nj_id,nj_name,nj_price,nj_description,nj_icon,nj_type,nj_oneharm,nj_combatype,nj_defense,nj_enhancetimes from 
+    farm_tools
+   <where>
+   <!--如果不输入查询条件显示所有  -->
+	    <if test="nj_id == null or nj_id=='')and (nj_name == null or nj_name =='')">
+	        1=1
+	   </if>
+	   <if test="nj_id != null and nj_id!='' ">
+	       AND nj_id   like '%'||#{nj_id}||'%'
+	    </if>
+	    <if test="(nj_name!=null and (nj_name !='' ">
+	       AND nj_name  like '%'||#{(nj_name}||'%' 
+	    </if>
+	    </where>
+	</select>
+ <!-- 分页SQL语句 -->  
+  <select id="selectfarmtoolsByPage" resultMap="farmtoolsResult">  
+     select * from farm_tools limit #{start},#{size}   
+     
+     <!-- select * from farm_tools
+		<if test="start!=null and size!=null ">
+			limit #{start},#{size}
+		</if> -->
+</select>  
+
+</mapper> 

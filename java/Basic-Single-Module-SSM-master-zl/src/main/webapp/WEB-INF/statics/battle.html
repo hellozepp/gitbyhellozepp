@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/jquery.countdown.min.js"></script>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        .fr{float:right;}
+        .fl{float:left;}
+        body {
+            background: url(battle/bg.jpg) no-repeat;
+            background-size: cover;
+        }
+
+
+        .bloodRow {
+            margin: 3% auto;
+            width: 90%;
+            overflow: hidden;
+            height: 36px;
+        }
+
+        .bloodLeft ,.areaLeft{
+            float: left;
+            width: 40%;
+
+        }
+
+        .bloodRight,.areaRight {
+            float: right;
+            width: 40%;
+        }
+
+        .perImg {
+            width: 36px;
+            height: 100%;
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .perImg img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .progress {
+            width: 300px;
+            padding: 4px;
+            margin-top:10px;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 6px;
+            -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        .bloodProgress {
+            position: relative;
+            height: 16px;
+            border-radius: 4px;
+            -webkit-transition: 0.4s linear;
+            -moz-transition: 0.4s linear;
+            -o-transition: 0.4s linear;
+            transition: 0.4s linear;
+            -webkit-transition-property: width, background-color;
+            -moz-transition-property: width, background-color;
+            -o-transition-property: width, background-color;
+            transition-property: width, background-color;
+            -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .bloodProgressBar {
+
+            background-color: #f27011;
+        }
+
+        .bloodProgressBar:before, .bloodProgressBar:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .bloodProgressBar:before {
+            bottom: 0;
+            background: url(../static/images/battle/stripes.png) 0 0 repeat;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .bloodProgressBar:after {
+            z-index: 2;
+            bottom: 45%;
+            border-radius: 4px;
+            background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+            background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+            background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+        }
+
+        .bloodProgressBarLeft {
+            width: 25%;
+        }
+
+        .bloodProgressBarRight {
+            float:right;
+            width: 35%;
+        }
+        .battleArea{position:relative;width:100%;overflow:hidden;}
+        .counter{margin:2px auto;font-family: Monaco;text-align:center;color: rgba(255, 215, 32, 0.89);font-size:20px;}
+        .skills{position:absolute;bottom:120px;}
+        .skills ul{position:relative}
+        .skills ul li{position:absolute;}
+        .skills ul li a{display:block;width:50px;height:50px;border-radius: 50%;overflow:hidden;}
+        .skills ul li a img{width:100%;height:100%;}
+        .skills ul li:nth-child(1){top:0px;left:60px;}
+        .skills ul li:nth-child(2){top:35px;left:100px;}
+        .skills ul li:nth-child(3){top:70px;left:60px;}
+        .skills ul li:nth-child(4){top:35px;left:20px;}
+         .areaLeft,.areaRight{height:100%;position: relative;}
+        .person{width:320px;height:500px;margin:0 50px;}
+        .person img{width:100%;height:100%;}
+        .skillsRight{right:160px;}
+         .start{color:#ffffff;text-decoration: none;font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;}
+    </style>
+
+    <script type="text/javascript">
+        var time = 60;
+        function countTime() {
+            if (time == -1) {
+                alert("战斗over");
+                return;
+            }
+            document.getElementById("counter").innerHTML = "剩余时间：" + time + "秒";
+            time = time - 1;
+            setTimeout('countTime()', 1000);
+        }
+    </script>
+
+</head>
+<body>
+<div class="bloodRow">
+    <div class="bloodLeft ">
+        <div class="perImg fl"><img src="battle/per1.jpg"/></div>
+        <div class="progress fl">
+            <div class="bloodProgress bloodProgressBar bloodProgressBarLeft"></div>
+            <div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bloodRight">
+            <div class="perImg fr"><img src="battle/per2.jpg"/>
+            </div>
+            <div class="progress fr">
+                <div class="bloodProgress bloodProgressBar bloodProgressBarRight"></div>
+            </div>
+        </div>
+
+</div>
+<div class="counter" id="counter"><a href="javascript:void(0);" class="start" onclick="countTime()">开始</a></div>
+
+<div class="battleArea">
+    <div class="areaLeft">
+
+        <div class="skills fl">
+            <ul>
+                <li><a href="#"><img src="battle/skill1.png"/></a></li>
+                <li><a href="#"><img src="battle/skill2.png"/></a></li>
+                <li><a href="#"><img src="battle/skill3.png"/></a></li>
+                <li><a href="#"><img src="battle/skill4.png"/></a></li>
+
+
+            </ul>
+        </div>
+        <div class="person fl"><img src="battle/battlePer2.png"/></div>
+</div>
+    <div class="areaRight">
+
+        <div class="skills skillsRight fr">
+            <ul>
+                <li><a href="#"><img src="battle/skill1.png"/></a></li>
+                <li><a href="#"><img src="battle/skill2.png"/></a></li>
+                <li><a href="#"><img src="battle/skill3.png"/></a></li>
+                <li><a href="#"><img src="battle/skill4.png"/></a></li>
+
+
+            </ul>
+        </div>
+        <div class="person fr"><img src="battle/battlePer1.png"/></div>
+
+    </div>
+</div>
+
+
+</body>
+</html>

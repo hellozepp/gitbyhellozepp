@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lakefarm.mapper.GrowplantsMapperCustom.xml" >
+    <select id="selectGrowplantCount" parameterType="Integer" resultType="Integer">
+        SELECT zz_allcount zzAllcount FROM shop_growplants WHERE zz_id =#{zzId}
+    </select>
+
+    <select id="selectGrowplantInfo" parameterType="Integer" resultType="com.lakefarm.pojo.GrowPlants">
+
+        SELECT zz_id zzId,zz_type zzType,zz_name zzName,zz_growntime  zzGrowntime,
+        zz_price zzPrice,zz_description zzDescription,zz_minplantcount zzMinplantcount,
+        zz_sicktype zzSicktype,zz_icon zzIcon,zz_production zzProduction,zz_singlehfuse
+        zzSinglehfuse FROM grow_plants
+        <where>
+            and zz_id=#{zzId}
+        </where>
+    </select>
+
+    <select id="selectGrowplantsByZzId" parameterType="Integer" resultType="Integer">
+        SELECT
+    </select>
+</mapper>

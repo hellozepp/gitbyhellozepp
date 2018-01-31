@@ -1,0 +1,327 @@
+.wrap {
+    width: 100%;
+    height: 80%;
+    font-size: 0;
+}
+
+.bg-img img {
+    width: 100%;
+    height: auto;
+    top: 700px;
+}
+
+.discover {
+    width: 150px;
+    height: 40px;
+    position: absolute;
+    top: 590px;
+    left: 30px;
+    border-style: dashed;
+    border-width: 1px;
+    border-color: #33CCFF;
+}
+
+.zu-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    width: 100%;
+    height: 45px;
+    background: #0767c8;
+    background: -webkit-linear-gradient(top, #086ed5, #055db5);
+    background: linear-gradient(to bottom, #086ed5, #055db5);
+    border-bottom: 1px solid #044e97;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .25), inset 0 1px 0 rgba(255, 255, 255, .15);
+}
+
+.zu-top-nav {
+    float: left;
+    position: relative;
+}
+
+.zu-top-nav-ul {
+    padding: 0;
+    margin: 0 0 0 18px;
+}
+
+.zg-clear {
+    height: 1%;
+}
+
+.zu-top-nav-li.current {
+    background: #075fb6;
+    background: -webkit-linear-gradient(top, #055fb8, #095fb3);
+    background: linear-gradient(to bottom, #055fb8, #095fb3);
+    box-shadow: inset 0 0 2px rgba(0, 0, 0, .12);
+}
+
+.zu-top-nav-li {
+    position: relative;
+    float: left;
+    margin: 0;
+    list-style: none;
+}
+
+.top-nav-topic-selector {
+    position: relative;
+    z-index: 10;
+}
+
+.zu-top-nav-link, .zu-top-nav-link:visited, .zu-top-nav-link:active {
+    color: #eee;
+}
+
+div[contentEditable], input, textarea, button, a:link {
+    -webkit-tap-highlight-color: rgba(225, 225, 225, .5);
+}
+
+.zu-top-nav-link {
+    width: 54px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    display: block;
+    color: #f2f4f5;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .12);
+    font-size: 14px;
+}
+
+.zu-top-add-question {
+    float: left;
+    width: 120px;
+    height: 32px;
+    top: -13px;
+    line-height: 30px;
+    margin-top: 7px;
+    border: 1px solid #045bb2;
+    border-radius: 4px;
+    background: #0e78e7;
+    background: -webkit-linear-gradient(top, #0e7bef, #0d73da);
+    background: linear-gradient(to bottom, #0e7bef, #0d73da);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .05), inset 0 1px 1px rgba(255, 255, 255, .15);
+    color: #fff;
+    font-size: 14px;
+    margin-left: 90px;
+    text-align: center;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .12);
+    outline: 0;
+    cursor: pointer;
+    position: relative;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+
+.footer {
+    border: solid 3px #ddd;
+    position: relative;
+    top: -390px;
+    left: 530px;
+    width: 38%;
+}
+
+.info-main {
+    position: relative;
+}
+
+.info {
+    padding: 0 4px;
+    color: white;
+    position: relative;
+
+}
+
+.info-li {
+    display: inline-block;
+    padding: 0 20px;
+    position: relative;
+
+}
+
+.info-main {
+    position: relative;
+}
+
+.j-button {
+    text-decoration: none;
+    color: #3b8cff;
+    border: 1px solid #c0d9fe;
+    border-radius: 4px;
+    height: 32px;
+    line-height: 32px;
+    padding-left: 10px;
+}
+
+.content_box_right_notice {
+    width: 89px;
+    height: 89px;
+    float: right;
+    margin-top: 28px;
+}
+
+/*change by rxl*/
+
+#pes_bg {
+    background: url("../images/nooticeboard.png") no-repeat;
+    width: 1024px;
+    height: 605px;
+    position: absolute;
+    float: left;
+    margin-left: 8%;
+    margin-top: 4%;;
+}
+
+#pes_bg_page li {
+    width: 86px;
+    height: 43px;
+    float: left;
+    list-style: none;
+    margin-top: -13px;
+}
+
+#pes_bg_page .page1 {
+    background: no-repeat;
+    margin-left: 253px;
+}
+
+#pes_bg_page .page2 {
+    background: no-repeat;
+}
+
+#pes_bg_box {
+    width: 653px;
+    height: 141px;
+    float: left;
+    margin-left: 255px;
+    margin-top: 61px;
+}
+
+#font {
+    width: 216px;
+    height: 37px;
+    float: left;
+    margin-left: 586px;
+    margin-top: 55px;
+    color: white;
+    font-size: x-large;
+}
+
+#pse_closeThisPage {
+    height: 58px;
+    width: 705px;
+    float: left;
+    margin-left: 252px;
+    margin-top: 14px;
+}
+
+#pse_closeThisPage a {
+    width: 53px;
+    height: 58px;
+    float: right;
+    margin-left: 100px;
+    background: url("../images/btn_shop_empoler.png") no-repeat;
+}
+
+#pes_bg_box li {
+    width: 106px;
+    height: 141px;
+    float: left;
+    list-style: none;
+    margin-left: 20px;
+}
+
+#pes_bg_box .employer1 {
+    background: no-repeat;
+}
+
+#pes_bg_box .employer2 {
+    background: no-repeat;
+}
+
+#pes_bg_box .employer3 {
+    background: no-repeat;
+}
+
+#pes_bg_box .employer4 {
+    background: no-repeat;
+}
+
+.pes_page {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    position: absolute;
+    padding-top: 10%;
+    top: 0;
+}
+
+.pes_page .pes_page_box {
+    background: url("../images/board.png") no-repeat;
+    width: 411px;
+    height: 471px;
+    margin: 0 auto;
+}
+
+.pse_buy_title {
+    width: 173px;
+    height: 40px;
+    background: url("../images/font_buy_employer.png") no-repeat;
+    float: left;
+    margin: 3% 0% 0 29%;
+}
+
+.pse_closeThisPage_buy {
+    background: no-repeat;
+    width: 45px;
+    height: 51px;
+    margin-left: 88%;
+    margin-top: 2px;
+    float: left;
+}
+
+.pse_buy_content {
+    width: 347px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.pse_buy_content #pse_buy_employer1 {
+    background: url("../images/employer1.png") no-repeat;
+    width: 106px;
+    height: 141px;
+    float: left;
+    margin-left: 30px;
+}
+
+.pse_buy_content #pse_buy_employer2 {
+    background: url("../images/employer2.png") no-repeat;
+    width: 106px;
+    height: 141px;
+    float: left;
+    margin-left: 30px;
+}
+
+.pse_buy_content #pse_buy_employer3 {
+    background: url("../images/employer3.png") no-repeat;
+    width: 106px;
+    height: 141px;
+    float: left;
+    margin-left: 30px;
+}
+
+.pse_buy_content #pse_buy_employer4 {
+    background: url("../images/employer4.png") no-repeat;
+    width: 106px;
+    height: 141px;
+    float: left;
+    margin-left: 30px;
+}
+
+.pse_buy_content_btn {
+    background: url("../images/buy_btn.png") no-repeat;
+    width: 155px;
+    height: 46px;
+    float: left;
+    margin-top: -88px;
+    margin-left: 131px;
+}

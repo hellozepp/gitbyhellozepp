@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>江湖农场</title>
+    <!--[if lt IE 9]>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <script src="js/bootstrap.js" type="javascript"></script>
+    <script src="js/jquery-latest.js"></script>
+    <link rel="stylesheet" href="./css/mainFarm.css" type="text/css"/>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        function touser(){
+            window.location.href="userinfo.html";
+        }
+        function torankSys(){
+            window.location.href="rankSys.html";
+        }
+        function tobag(){
+            window.location.href="mypacksack.html";
+        }
+        function recharge(){
+            window.location.href="recharge.html";
+        }
+        function totask(){
+            window.location.href="taskList.html";
+        }
+        function tojiangli() {
+            window.location.href="no_development.html";
+        }
+        function togongshe() {
+            window.location.href="no_development.html";
+        }
+        function tochoujiang() {
+            window.location.href="no_development.html";
+        }
+        function tohuodong() {
+            window.location.href="no_development.html";
+        }
+        function toenhance() {
+            window.location.href="strengthenprop.html";
+        }
+    </script>
+    <script>
+        $(document).ready(
+            function () {
+                <!--激活道具雇农店隐藏页-->
+                $("#pes").hide();
+                $("a[name='icontext']").click(function(){
+                    $("#pes").show();
+                });
+                <!--激活和隐藏购买雇农隐藏页-->
+                $(".pes_page").hide();
+                $(".employer1").click(function(){
+                    $("#pes_page1").show();
+                });
+                $(".employer2").click(function(){
+                    $("#pes_page2").show();
+                });
+                $(".employer3").click(function(){
+                    $("#pes_page3").show();
+                });
+                $(".employer4").click(function(){
+                    $("#pes_page4").show();
+                });
+                $(".pse_closeThisPage_buy").click(function(){
+                    $(".pes_page").hide();
+                });
+                <!---->
+                <!---->
+                var e_id=0;
+
+                $('#pse_buy_content_btn1').click(function () {
+                    e_id=1;
+                    alert(e_id);
+                });
+                $('#pse_buy_content_btn2').click(function () {
+                    e_id=2;
+                    alert(e_id);
+                });
+                $('#pse_buy_content_btn3').click(function () {
+                    e_id=3;
+                });
+                $('#pse_buy_content_btn4').click(function () {
+                    e_id=4;
+                });
+                <!--雇农店ajax返回值-->
+                $('.pse_buy_content_btn').click(
+                    function(){
+                        $.ajax({
+                            type:"post",
+                            url:"/employee/queryEmployee.from?e_id="+e_id,
+                            dataType:"html",//发送给服务的类型
+                            success: function (msg) {
+                                if(msg=="0"){
+                                    alert("网络异常！");
+                                }else alert(msg);
+                            }
+                        })
+                    } )
+
+            })
+    </script>
+</head>
+<body style="overflow-x: hidden;overflow-y: hidden">
+<div style="z-index: 1;">
+<div role="navigation" class="zu-top" data-za-module="TopNavBar">
+    <div class="zg-wrap modal-shifting clearfix" id="zh-top-inner">
+        <div class="info-main">
+            <input type="button" class="zu-top-add-question" id="userinfo" value="个人信息" onclick="touser()">
+            <ul class="info">
+                <li class="info-li">体力：xx</li>
+                <li class="info-li">金币：xx</li>
+                <li class="info-li">钻石：xx（1钻=1元=100金币）</li>
+                <li class="info-li">等级：xx</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="mainframe">
+    <img src="img/quanjing.jpg" class="mapcontain"/>
+    <div class="nongju"><a class="icontext" href="farmshop.html">农具店</a></div>
+    <div class="daoju" id="daoju"><a  class="icontext" name="icontext" >道具雇员店</a></div>
+    <div class="caidi"><a class="icontext" href="vegetable.html">菜地</a></div>
+    <div class="exchange"><a class="icontext" href="nongzuowu.html">农产品交易中心</a></div>
+    <div class="drugstore"><a class="icontext" href="feiliaoshop.html">肥料农药店</a></div>
+    <div class="farmhome"><a class="icontext" href="no_development.html">农家院住宅</a></div>
+    <div class="restaurant"><a class="icontext" href="no_development.html">餐厅</a></div>
+
+</div>
+<div class="rightclean">
+    <ul class="info-r">
+        <li class="info-rli" ><input type="button" value="充值" class="r-button" style="cursor: pointer" onclick="recharge()"/></li>
+        <li class="info-rli" ><input type="button" value="活动" class="r-button" style="cursor: pointer" onclick="tohuodong()"/></li>
+        <li class="info-rli" ><input type="button" value="奖励" class="r-button" style="cursor: pointer" onclick="tojiangli()"/></li>
+        <li class="info-rli" ><input type="button" value="抽奖" class="r-button" style="cursor: pointer" onclick="tochoujiang()"/></li>
+    </ul>
+</div>
+
+<div class="footer">
+    <ul class="info">
+        <li class="info-li" ><input type="button" value="公社" class="j-button" style="cursor: pointer" onclick="togongshe()"/></li>
+        <li class="info-li" ><input type="button" value="排行榜" class="j-button" style="cursor: pointer" onclick="torankSys()"/></li>
+        <li class="info-li" ><input type="button" value="背包" class="j-button" style="cursor: pointer" onclick="tobag()"/></li>
+        <li class="info-li" ><input type="button" value="强化道具" class="j-button" style="cursor: pointer" onclick="toenhance()"/></li>
+        <li class="info-li" ><input type="button" value="任务" class="j-button" style="cursor: pointer" onclick="totask()"/></li>
+    </ul>
+</div>
+</div>
+<!--++++++++++++++++道具雇农隐藏页+++++++++++-->
+<div id="pes"  style="width: 100%;height: 100%;float: left;z-index: 2;position:absolute;background: rgba(0,0,0,0.34);left: 0;top: 0;">
+<div id="pes_bg">
+    <div id="font"></div>
+    <div id="pse_closeThisPage"><a href="mainFarm.html" ></a></div>
+    <ul id="pes_bg_page">
+        <!--雇农页面-->
+        <li class="page1"><a href="####" id="page1"><img  src="images/page1.png"></a></li>
+        <!--道具页面-->
+        <li class="page2"><a href="dragEmployeeShop.html" id="page2"><img src="images/page2.png"> </a></li>
+    </ul>
+    <div id="pes_bg_box" >
+        <ul >
+            <li class="employer1"><a id="employer1" href="####"><img src="images/employer1.png"></a></li>
+            <li class="employer2"><a id="employer2" href="####"><img src="images/employer2.png"></a></li>
+            <li class="employer3"><a id="employer3" href="####"><img src="images/employer3.png"></a></li>
+            <li class="employer4"><a id="employer4" href="####"><img src="images/employer4.png"></a></li>
+        </ul>
+    </div>
+</div>
+</div>
+<!--++++++++++++++++雇农1隐藏页+++++++++++-->
+<div id="pes_page1" class="pes_page" style="z-index: 3;">
+    <div class="pes_page_box">
+        <div class="pse_buy_title"></div>
+        <div ><a href="javascript:;" ><img class="pse_closeThisPage_buy" src="images/btn_shop_empoler_buy.png"></a></div>
+        <div class="pse_buy_content">
+            <div id="pse_buy_employer1"></div>
+            <div class="pse_buy_content_text">
+                <p style="font-size: 8pt; width: 153px;float: left;margin: 0 0 0 12%;">
+                    农刺客：<br>
+                    普攻：扔小石头<br>
+                    魔攻：1.扔仙人球，2.飞腿<br>
+                    魔防：1.双臂交叉<br>
+                    偷盗：顺手牵羊<br>
+                    防御：60<br>
+                    魔回血：8<br>
+                    魔血回魔：无
+                </p></div>
+        </div>
+        <input id="pse_buy_content_btn1" class="pse_buy_content_btn" type="button" >
+    </div>
+</div>
+<!--++++++++++++++++雇农2隐藏页+++++++++++-->
+<div id="pes_page2" class="pes_page" style="z-index: 3;">
+    <div class="pes_page_box">
+        <div class="pse_buy_title"></div>
+        <div ><a href="javascript:;" ><img class="pse_closeThisPage_buy" src="images/btn_shop_empoler_buy.png"></a></div>
+        <div class="pse_buy_content">
+            <div id="pse_buy_employer2"></div>
+            <div class="pse_buy_content_text">
+                <p style="font-size: 8pt; width: 153px;float: left;margin: 0 0 0 12%;">
+                    农刺客：<br>
+                    普攻：扔小石头<br>
+                    魔攻：1.扔仙人球，2.飞腿<br>
+                    魔防：1.双臂交叉<br>
+                    偷盗：顺手牵羊<br>
+                    防御：60<br>
+                    魔回血：8<br>
+                    魔血回魔：无
+                </p></div>
+        </div>
+        <input id="pse_buy_content_btn2" class="pse_buy_content_btn" type="button" >
+    </div>
+</div>
+<!--++++++++++++++++雇农3隐藏页+++++++++++-->
+<div id="pes_page3" class="pes_page" style="z-index: 3;">
+    <div class="pes_page_box">
+        <div class="pse_buy_title"></div>
+        <div ><a href="javascript:;" ><img class="pse_closeThisPage_buy" src="images/btn_shop_empoler_buy.png"></a></div>
+        <div class="pse_buy_content">
+            <div id="pse_buy_employer3"></div>
+            <div class="pse_buy_content_text">
+                <p style="font-size: 8pt; width: 153px;float: left;margin: 0 0 0 12%;">
+                    农刺客：<br>
+                    普攻：扔小石头<br>
+                    魔攻：1.扔仙人球，2.飞腿<br>
+                    魔防：1.双臂交叉<br>
+                    偷盗：顺手牵羊<br>
+                    防御：60<br>
+                    魔回血：8<br>
+                    魔血回魔：无
+                </p></div>
+        </div>
+        <input id="pse_buy_content_btn3" class="pse_buy_content_btn" type="button" >
+    </div>
+</div>
+<!--++++++++++++++++雇农4隐藏页+++++++++++-->
+<div id="pes_page4" class="pes_page" style="z-index: 3;">
+    <div class="pes_page_box">
+        <div class="pse_buy_title"></div>
+        <div ><a href="javascript:;" ><img class="pse_closeThisPage_buy" src="images/btn_shop_empoler_buy.png"></a></div>
+        <div class="pse_buy_content">
+            <div id="pse_buy_employer4"></div>
+            <div class="pse_buy_content_text">
+                <p style="font-size: 8pt; width: 153px;float: left;margin: 0 0 0 12%;">
+                    农刺客：<br>
+                    普攻：扔小石头<br>
+                    魔攻：1.扔仙人球，2.飞腿<br>
+                    魔防：1.双臂交叉<br>
+                    偷盗：顺手牵羊<br>
+                    防御：60<br>
+                    魔回血：8<br>
+                    魔血回魔：无
+                </p></div>
+        </div>
+        <input id="pse_buy_content_btn4" class="pse_buy_content_btn" type="button" >
+    </div>
+</div>
+</body>
+</html>

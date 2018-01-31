@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>菜地</title>
+    <link rel="stylesheet" type="text/css" href="./css/vegetable.css">
+
+
+    <style type="text/css">
+        .newbg {
+
+        }
+    </style>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript">
+        function touser() {
+            window.location.href = "userinfo.html";
+        }
+        function torankSys() {
+            window.location.href = "rankSys.html";
+        }
+        function tobag() {
+            window.location.href = "mypacksack.html";
+        }
+        function recharge() {
+            window.location.href = "recharge.html";
+        }
+        function totask() {
+            window.location.href = "taskList.html";
+        }
+        function tozhandou() {
+            window.location.href = "battle.html";
+        }
+        function tonongzuo() {
+            window.location.href = "farmer.html";
+        }
+    </script>
+    <script>
+        $(document).ready(
+                function () {
+                    <!--激活道具雇农店隐藏页-->
+                    $("#pes").hide();
+                    $("#bean").click(function () {
+                        $("#pes").show();
+                    });
+                })
+    </script>
+</head>
+<body style="overflow-x: hidden;overflow-y: hidden">
+<div class="wrap">
+    <div id="main">
+        <div class="bg-img ">
+            <img src="images/background/2.png" style="height: 640px;">
+        </div>
+    </div>
+    <div id="soilList">
+        <div>
+            <img src="" class="seed" style="position: absolute;top: 326px;left: 113px;z-index: 2"/>
+            <img src="images/soil/2.png" id="soil1" onclick="clicksoil(this.id)" style="position: absolute;top: 326px;left: 113px;z-index:1">
+        </div>
+        <div>
+            <img src="" class="seed" style="position: absolute;top: 269px;left: 232px;z-index: 2">
+            <img src="images/soil/2.png"  style="position: absolute;top: 269px;left: 232px;z-index: 1"id="soil2" onclick="clicksoil(this.id)">
+        </div>
+        <div>
+            <img src="" class="seed" style="position: absolute;top: 218px;left: 356px;z-index: 2">
+            <img src="images/soil/2.png" style="position: absolute;top: 218px;left: 356px;z-index: 1" id="soil3" onclick="clicksoil(this.id)">
+        </div>
+        <div>
+            <img src="" class="seed" style="position: absolute;top: 383px;left: 243px;z-index: 2">
+            <img src="images/soil/2.png" style="position: absolute;top: 383px;left: 243px;z-index: 1" id="soil4" onclick="clicksoil(this.id)">
+        </div>
+        <div>
+            <img src="" class="seed" style="position: absolute;top: 324px;left: 356px;z-index: 2">
+            <img src="images/soil/2.png" style="position: absolute;top: 324px;left: 356px;z-index: 1" id="soil5" onclick="clicksoil(this.id)">
+        </div>
+        <div>
+            <img src="" class="seed" style="position: absolute;top: 272px;left: 473px;z-index: 2">
+            <img src="images/soil/2.png" style="position: absolute;top: 272px;left: 473px;z-index: 1" id="soil6" onclick="clicksoil(this.id)">
+        </div>
+        <div>
+            <img src="" class="seed" style="position: absolute;top: 441px;left: 361px;z-index: 2">
+            <img src="images/soil/2.png" style="position: absolute;top: 441px;left: 361px;z-index: 1" id="soil7" onclick="clicksoil(this.id)">
+        </div>
+        <div>
+            <img src="" class="seed" style="position: absolute;top: 381px;left: 478px;z-index: 2">
+            <img src="images/soil/2.png" style="position: absolute;top: 381px;left: 478px;z-index: 1" id="soil8" onclick="clicksoil(this.id)">
+        </div>
+        <div>
+            <img src="" class="seed" style="position: absolute;top: 326px;left: 591px;z-index: 2">
+            <img src="images/soil/2.png" style="position: absolute;top: 326px;left: 591px;z-index: 1" id="soil9" onclick="clicksoil(this.id)">
+        </div>
+
+
+    </div>
+
+</div>
+<input class="discover" type="button" value="被发现" onclick="tozhandou()"/>
+<!--<div class="discover">-->
+<!--<a id="content_box_right_notice" class="content_box_right_notice"-->
+<!--style="background:url('images/noticeFindThief1.png') no-repeat;"></a>-->
+<!--&lt;!&ndash;连接到下一个页面&ndash;&gt;-->
+<!--<a class="content_box_right_moveTo"-->
+<!--style="background:url('./img/discovery.png') no-repeat;" href="javascript:;"></a>-->
+<!--</div>-->
+<div role="navigation" class="zu-top" data-za-module="TopNavBar">
+    <div class="zg-wrap modal-shifting clearfix" id="zh-top-inner">
+        <div class="info-main">
+            <input type="button" class="zu-top-add-question" id="userinfo" value="个人信息" onclick="touser()">
+            <ul class="info">
+                <li class="info-li" style="top: -10px;">体力：xx</li>
+                <li class="info-li" style="top: -10px;">金币：xx</li>
+                <li class="info-li" style="top: -10px;">钻石：xx（1钻=1元=100金币）</li>
+                <li class="info-li" style="top: -10px;">等级：xx</li>
+                <li class="info-li" style="top: -10px;"><input type="button" value="农作" class="j-button"
+                                                               style="cursor: pointer"
+                                                               onclick="tonongzuo()"/></li>
+                <li class="info-li" style="top: -10px;"><input type="button" value="排行榜" class="j-button"
+                                                               style="cursor: pointer"
+                                                               onclick="torankSys()"/></li>
+                <li class="info-li" style="top: -10px;"><input type="button" value="背包" class="j-button"
+                                                               style="cursor: pointer"
+                                                               onclick="tobag()"/></li>
+                <li class="info-li" style="top: -10px;"><input type="button" value="强化道具" class="j-button"
+                                                               style="cursor: pointer"/></li>
+                <li class="info-li" style="top: -10px;"><input type="button" value="任务" class="j-button"
+                                                               style="cursor: pointer"
+                                                               onclick="totask()"/></li>
+                <!--<li class="info-li" ><input type="button" value="农作" class="j-button" style="cursor: pointer" onclick="tonongzuo()"/></li>-->
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="footer" style="top: -437px;left: 656px;">
+    <ul class="info">
+        <li class="info-li"><input id="bean" type="button" value="种子" class="j-button" style="cursor: pointer"
+        /></li>
+        <li class="info-li"><input type="button" value="除草" class="j-button" style="cursor: pointer"
+        /></li>
+        <li class="info-li"><input type="button" value="除虫" class="j-button" style="cursor: pointer"/>
+        </li>
+        <li class="info-li"><input type="button" value="浇水" class="j-button" style="cursor: pointer"/></li>
+        <li class="info-li"><input type="button" value="施肥" class="j-button" style="cursor: pointer"
+        /></li>
+        <!--<li class="info-li" ><input type="button" value="农作" class="j-button" style="cursor: pointer" onclick="tonongzuo()"/></li>-->
+    </ul>
+</div>
+<!--++++++++++++++++隐藏页+++++++++++-->
+<div id="pes"
+     style="width: 100%;height: 100%;float: left;z-index: 2;position:absolute;background: rgba(0,0,0,0.34);left: 0;top: 0;">
+    <div id="pes_bg">
+        <div id="font">种子</div>
+        <div id="pse_closeThisPage"><a href="vegetable.html"></a></div>
+        <ul id="pes_bg_page">
+            <!--种子页面-->
+            <li class="page1"><a href="####" id="page1"><img src="images/model.png"><a style="top:-39px;
+    left: 23px;
+    position: relative;
+    color: black;">种子</a></a></li>
+
+        </ul>
+        <div id="pes_bg_box">
+            <ul>
+                <li class="employer1"><a id="crop1"  href="####" onclick="crop(this.id)"><img src="images/crops/crop1/seed.png"></a><a>x10</a></li>
+                <li class="employer2"><a id="crop2" href="####" onclick="crop(this.id)"><img src="images/crops/crop2/seed.png"></a><a>x10</a></li>
+                <li class="employer3"><a id="crop3" href="####" onclick="crop(this.id)"><img src="images/crops/crop3/seed.png"></a><a>x10</a></li>
+                <li class="employer4"><a id="crop4" href="####" onclick="crop(this.id)"><img src="images/crops/crop4/seed.png"></a><a>x10</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    function crop(v) {
+        if(v=="crop1"){
+            $("#pes").hide();
+            $("html").css("cursor","url(./images/crops/crop1/seed.png), url(./images/crops/crop1/seed.png),auto");
+        }else if(v=="crop2"){
+            $("#pes").hide();
+            $("html").css("cursor","url(./images/crops/crop2/seed.png), url(./images/crops/crop2/seed.png),auto");
+        }else if(v=="crop3"){
+            $("#pes").hide();
+            $("html").css("cursor","url(./images/crops/crop3/seed.png), url(./images/crops/crop3/seed.png),auto");
+        } else if(v=="crop4"){
+            $("#pes").hide();
+            $("html").css("cursor","url(./images/crops/crop4/seed.png), url(./images/crops/crop4/seed.png),auto");
+        }
+    }
+    function clicksoil(v) {
+        if(v=="soil1"){
+            var url=$("html").css("cursor").split("\"")[1];
+            var newurl=url.replace("seed.png","1.png");
+            $("#soil1").siblings(".seed").attr("src",newurl);
+            $("html").css("cursor","");
+        }else if(v=="soil2"){
+            var url=$("html").css("cursor").split("\"")[1];
+            var newurl=url.replace("seed.png","1.png");
+            $("#soil2").siblings(".seed").attr("src",newurl);
+            $("html").css("cursor","");
+        }else if(v=="soil3"){
+            var url=$("html").css("cursor").split("\"")[1];
+            var newurl=url.replace("seed.png","1.png");
+            $("#soil3").siblings(".seed").attr("src",newurl);
+            $("html").css("cursor","");
+        }else if(v=="soil4"){
+            var url=$("html").css("cursor").split("\"")[1];
+            var newurl=url.replace("seed.png","1.png");
+            $("#soil4").siblings(".seed").attr("src",newurl);
+            $("html").css("cursor","");
+        }else if(v=="soil5"){
+            var url=$("html").css("cursor").split("\"")[1];
+            var newurl=url.replace("seed.png","1.png");
+            $("#soil5").siblings(".seed").attr("src",newurl);
+            $("html").css("cursor","");
+        }else if(v=="soil6"){
+            var url=$("html").css("cursor").split("\"")[1];
+            var newurl=url.replace("seed.png","1.png");
+            $("#soil6").siblings(".seed").attr("src",newurl);
+            $("html").css("cursor","");
+        }else if(v=="soil7"){
+            var url=$("html").css("cursor").split("\"")[1];
+            var newurl=url.replace("seed.png","1.png");
+            $("#soil7").siblings(".seed").attr("src",newurl);
+            $("html").css("cursor","");
+        }else if(v=="soil8"){
+            var url=$("html").css("cursor").split("\"")[1];
+            var newurl=url.replace("seed.png","1.png");
+            $("#soil8").siblings(".seed").attr("src",newurl);
+            $("html").css("cursor","");
+        }else if(v=="soil9"){
+            var url=$("html").css("cursor").split("\"")[1];
+            var newurl=url.replace("seed.png","1.png");
+            $("#soil9").siblings(".seed").attr("src",newurl);
+            $("html").css("cursor","");
+        }
+    }
+</script>
+
+
+</body>
+</html>

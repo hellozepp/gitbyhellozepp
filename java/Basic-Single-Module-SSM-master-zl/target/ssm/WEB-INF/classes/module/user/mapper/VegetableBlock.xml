@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lakefarm.mapper.VegetableBlockMapper">
+    <resultMap id="getVegetableBlock" type="com.lakefarm.pojo.VegetableBlock">
+        <id column="block_id" property="block_id"/>
+        <result property="block_zzname" column="block_zzname"/>
+        <result property="block_starTime" column="block_starTime"/>
+        <result property="block_currentCircle" column="block_currentCircle"/>
+        <result property="block_sfchucao" column="block_sfchucao"/>
+        <result property="block_sfchuchong" column="block_sfchuchong"/>
+        <result property="block_sfjiaoshui" column="block_sfjiaoshui"/>
+        <result property="block_sfshifei" column="block_sfshifei"/>
+        <result property="c_id" column="c_id"/>
+    </resultMap>
+
+    <!--增加任务-->
+    <insert id="addBlock" parameterType="com.lakefarm.pojo.VegetableBlock">
+        insert into vegetable_block values
+        (#{block_id},#{block_zzname},#{block_starTime},#{block_currentCircle},
+        #{block_sfchucao},#{block_sfchuchong},#{block_sfjiaoshui},#{block_sfshifei},#{c_id});
+    </insert>
+
+    <!--删除任务-->
+    <delete id="deleteBlock" parameterType="String">
+        delete from vegetable_block where block_id=#{block_id};
+    </delete>
+
+    <!--更新任务-->
+    <update id="updateBlock" parameterType="com.lakefarm.pojo.VegetableBlock">
+        update vegetable_block
+        <set>
+            <if test="block_zzname!=null and block_zzname!='' ">
+                block_zzname=#{block_zzname},
+            </if>
+            <if test="block_starTime!=null and block_starTime!='' ">
+                block_starTime=#{block_starTime},
+            </if>
+            <if test="block_currentCircle!=null and block_currentCircle!='' ">
+                block_currentCircle=#{block_currentCircle},
+            </if>
+            <if test="block_sfchucao!=null and block_sfchucao!='' ">
+                block_sfchucao=#{block_sfchucao},
+            </if>
+            <if test="block_sfchuchong!=null and block_sfchuchong!='' ">
+                block_sfchuchong=#{block_sfchuchong},
+            </if>
+            <if test="block_sfjiaoshui!=null and block_sfjiaoshui!='' ">
+                block_sfjiaoshui=#{block_sfjiaoshui},
+            </if>
+            <if test="block_sfshifei!=null and block_sfshifei!='' ">
+                block_sfshifei=#{block_sfshifei},
+            </if>
+            <if test="c_id!=null and c_id!='' ">
+                c_id=#{c_id},
+            </if>
+            where block_id=#{block_id};
+        </set>
+    </update>
+
+
+    <!--通过id获取指定任务-->
+    <select id="getBlockById" parameterType="String" resultMap="getVegetableBlock">
+        select block_id,block_zzname,block_starTime,block_currentCircle,block_sfchucao
+         ,block_sfchuchong,block_sfjiaoshui,block_sfshifei,c_id from vegetable_block where block_id=#{block_id}
+    </select>
+</mapper>
