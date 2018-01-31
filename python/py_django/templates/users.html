@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>users</title>
+</head>
+<body>
+    <table>
+    <tr>
+            <td>id</td>
+            <td>用户名</td>
+            <td>密码</td>
+            <td>操作</td>
+    </tr>
+    {% for user in user_list %}
+        <tr>
+            <td>{{ user.uid }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.password }}</td>
+            <td>{{ user.regtime }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

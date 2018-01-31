@@ -1,0 +1,75 @@
+#查看帮助
+iptables -h
+man iptables
+
+列出iptables规则
+iptables -L -n
+列出iptables规则并显示规则编号
+iptables -L -n --line-numbers
+
+列出iptables nat表规则（默认是filter表）
+iptables -L -n -t nat
+
+清除默认规则（注意默认是filter表，如果对nat表操作要加-t nat）
+#清楚所有规则
+iptables -F 
+
+#重启iptables发现规则依然存在，因为没有保存
+service iptables restart
+
+#保存配置
+service iptables save
+
+#禁止ssh登陆（若果服务器在机房，一定要小心）
+iptables -A INPUT -p tcp --dport 22 -j DROP
+#删除规则
+iptables -D INPUT -p tcp --dport 22 -j DROP
+
+-A, --append chain	追加到规则的最后一条
+-D, --delete chain [rulenum]	Delete rule rulenum (1 = first) from chain
+-I, --insert chain [rulenum]	Insert in chain as rulenum (default 1=first) 添加到规则的第一条
+-p, --proto  proto	protocol: by number or name, eg. 'tcp',常用协议有tcp、udp、icmp、all
+-j, --jump target 常见的行为有ACCEPT、DROP和REJECT三种，但一般不用REJECT，会带来安全隐患
+
+注意：INPUT和DROP这样的关键字需要大写
+
+#禁止192.168.33.0网段从eth0网卡接入
+iptables -A INPUT -p tcp -i eth0 -s 192.168.33.0 -j DROP
+iptables -A INPUT -p tcp --dport 22 -i eth0 -s 192.168.33.61  -j ACCEPT
+
+#禁止ip地址非192.168.10.10的所有类型数据接入
+iptables -A INPUT ! -s 192.168.10.10 -j DROP
+
+#禁止ip地址非192.168.10.10的ping请求
+iptables -I INPUT -p icmp --icmp-type 8 -s 192.168.50.100 -j DROP
+
+#扩展匹配：1.隐式扩展 2.显示扩展
+	#隐式扩展
+	-p tcp
+		--sport PORT 源端口
+		--dport PORT 目标端口
+
+	#显示扩展：使用额外的匹配规则
+	-m EXTENSTION --SUB-OPT
+	-p tcp --dport 22 与 -p tcp -m tcp --dport 22功能相同
+
+	state：状态扩展，接口ip_contrack追踪会话状态
+		NEW：新的连接请求
+		ESTABLISHED：已建立的连接请求
+		INVALID：非法连接
+		RELATED：相关联的连接
+	
+
+#匹配端口范围
+iptables -I INPUT -p tcp --dport 22:80 -j DROP
+
+#匹配多个端口
+iptables -I INPUT -p tcp -m multiport --dport 22,80,3306 -j ACCEPT
+
+#不允许源端口为80的数据流出
+iptables -I OUTPUT -p tcp --sport 80 -j DROP
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+

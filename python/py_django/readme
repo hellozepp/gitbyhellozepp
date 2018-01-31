@@ -1,0 +1,199 @@
+django建立工程的命令：django-admin.py startproject project_name，不过有了pycharm就不用费这个劲了
+py_django------------------------工程目录
+    py_django--------------------站点目录
+        __init__.py
+        settings.py--------------项目配置文件：默认定义本项目使用的组件，项目名称等。在开发中，配置数据库参数，导入其他的python包等(DEBUG = False)
+        urls.py------------------定义用户访问的url被哪个python模块解析
+        wsgi.py------------------用于与其他服务器集成，一般不用改
+    manage.py--------------------用于站点运行，数据库生成，静态文件收集等工作，也用于创建站点中的应用（如：python3 manage.py startapp testapp，不过有了pycharm就不用费这个劲了）
+    templates--------------------网站的模板放在这个文件夹中
+-------------------------------------------------------------------------------------------------------
+    testapp----------------------应用目录
+        migrations---------------用于在之后定义引用迁移功能,不用自己写,自动生成代码
+            __init__.py
+        __init__.py
+        admin.py-----------------管理应用里面的models的声明文件
+        apps.py------------------应用信息定义:AppConfig用于定义应用名等元数据信息
+        models.py----------------添加模型层数据类的地方
+        tests.py-----------------添加测试代码的地方
+        views.py-----------------定义url响应函数的地方
+        urls.py(这个需要自己建)----定义url与views的映射关系
+        forms.py(这个需要自己建)---定义表单的地方
+
+中文问题：修改py_django/py_django/settings.py
+LANGUAGE_CODE = 'zh-hans'
+TIME_ZONE = 'Asia/Shanghai'
+
+为py_django/py_django/manage.py添加运行参数：runserver 0.0.0.0:8888 --insecure(--insecure不开启，如果再把debug模式关闭，就无法使用templates和static这些文件夹了)
+
+然后访问http://localhost:8888/testapp/　进行测试
+
+
+设置数据库为mysql:
+首先创建数据库：
+create database py_django CHARACTER SET utf8;;
+然后修改应用：
+py_django/py_django/settings.py修改DATABASES:
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'py_django',
+        'USER':'root',
+        'PASSWORD':'root',
+        'HOST':'127.0.0.1',
+        'PORT':'3306',
+    }
+}
+添加测试数据库运行命令：
+为py_django/py_django/manage.py添加运行参数：migrate
+运行成功后，进入数据库可以看到如下表：
+show tables;
++----------------------------+
+| Tables_in_py_django        |
++----------------------------+
+| auth_group                 |
+| auth_group_permissions     |
+| auth_permission            |
+| auth_user                  |
+| auth_user_groups           |
+| auth_user_user_permissions |
+| django_admin_log           |
+| django_content_type        |
+| django_migrations          |
+| django_session             |
++----------------------------+
+10 rows in set (0.00 sec)
+
+添加模型并同步生成数据表：
+在models中添加模型代码,然后同步生成表：
+为py_django/py_django/manage.py添加运行参数：makemigrations testapp
+执行manage.py migrate那个命令
+ desc testapp_user;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| id       | int(11)     | NO   | PRI | NULL    | auto_increment |#它会自动生成一个主键，并且自增
+| uid      | int(11)     | NO   |     | NULL    |                |
+| username | varchar(30) | NO   |     | NULL    |                |
+| password | varchar(30) | NO   |     | NULL    |                |
+| regtime  | datetime(6) | NO   |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+5 rows in set (0.00 sec)
+设置自定义主键，uid=models.IntegerField(primary_key=True)然后同步：
+desc testapp_user;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| uid      | int(11)     | NO   | PRI | NULL    |       |
+| username | varchar(30) | NO   |     | NULL    |       |
+| password | varchar(30) | NO   |     | NULL    |       |
+| regtime  | datetime(6) | NO   |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+添加debug sql配置：
+在py_django/py_django/settings.py中添加如下内容：
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level':'DEBUG',
+        },
+    }
+}
+
+
+配置链接池：
+
+安装SQLAlchemy
+拷贝一份/django/db/backends/mysql的mysql文件，放入/django/db/backends改名为"mysqlpool"
+在项目文件settings.py中添加：
+	DATABASE_WAIT_TIMEOUT = 120
+数据库：
+	set global wait_timeout = 120;
+
+修改mysql_pool下base.py文件：
+将base.py中所以import中的mysql替换为mysql_pool
+
+找到
+
+try:
+    import MySQLdb as Database
+except ImportError as e:
+    from django.core.exceptions import ImproperlyConfigured
+    raise ImproperlyConfigured("Error loading MySQLdb module: %s" % e)
+这段代码，在下面添加：
+
+from sqlalchemy import pool
+Database = pool.manage(Database[,recycle=DATABASE_WAIT_TIMEOUT-1])
+#其中DATABASE_WAIT_TIMEOUT为你定义的连接超时时间，必须小于等于mysql里面的wait_timeout（）
+结果如下
+
+try:
+    import MySQLdb as Database
+except ImportError as e:
+    from django.core.exceptions import ImproperlyConfigured
+    raise ImproperlyConfigured("Error loading MySQLdb module: %s" % e)
+from sqlalchemy import pool
+Database = pool.manage(Database)
+
+然后找到get_connection_params(self)函数代码：
+
+def get_connection_params(self):
+    kwargs = {
+        'conv':django_conversions,
+        'charset':utf8
+        }
+        ...
+修改为：
+
+def get_connection_params(self):
+    kwargs = {
+        'charset':utf8
+        }
+        ...
+
+
+使用管理界面：(备注：用户名密码我写的是操作系统用的)
+在py_django/py_django/testapp/admin.py注册需要管理的models
+然后必须到命令行执行：python3 manage.py createsuperuser
+【注】:如果遇到这个错误："Couldn't import Django. Are you sure it's installed and "
+执行：pip install -U django
+
+过程如下：－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+andilyliao@andilyliao:/home/andilyliao/PycharmProjects/py_django> python3 manage.py createsuperuser
+(0.000) SELECT @@SQL_AUTO_IS_NULL; args=None
+(0.000) SELECT VERSION(); args=None
+(0.000) SHOW FULL TABLES; args=None
+(0.000) SELECT `django_migrations`.`app`, `django_migrations`.`name` FROM `django_migrations`; args=()
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'andilyliao'; args=('andilyliao',)
+Username (leave blank to use 'andilyliao'):
+(0.000) SELECT `auth_user`.`id`, `auth_user`.`password`, `auth_user`.`last_login`, `auth_user`.`is_superuser`, `auth_user`.`username`, `auth_user`.`first_name`, `auth_user`.`last_name`, `auth_user`.`email`, `auth_user`.`is_staff`, `auth_user`.`is_active`, `auth_user`.`date_joined` FROM `auth_user` WHERE `auth_user`.`username` = 'andilyliao'; args=('andilyliao',)
+Email address: andilyliao@126.com
+Password:
+Password (again):
+This password is too short. It must contain at least 8 characters.
+This password is too common.
+This password is entirely numeric.
+Password:
+Password (again):
+This password is too common.
+This password is entirely numeric.
+Password:
+Password (again):
+(0.000) INSERT INTO `auth_user` (`password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES ('pbkdf2_sha256$36000$F4FjgbdbVZua$5g+E7v1Q3srgKHJFGW81cuAZ3hoRJwefvRzfh/i6tRU=', NULL, 1, 'andilyliao', '', '', 'andilyliao@126.com', 1, 1, '2017-11-17 14:46:52.259968'); args=['pbkdf2_sha256$36000$F4FjgbdbVZua$5g+E7v1Q3srgKHJFGW81cuAZ3hoRJwefvRzfh/i6tRU=', None, True, 'andilyliao', '', '', 'andilyliao@126.com', True, True, '2017-11-17 14:46:52.259968']
+Superuser created successfully.
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+
+
+
+

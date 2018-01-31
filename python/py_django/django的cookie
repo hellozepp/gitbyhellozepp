@@ -1,0 +1,23 @@
+1、获取Cookie：
+
+request.COOKIES['key']
+request.get_signed_cookie(key, default=RAISE_ERROR, salt='', max_age=None)
+     参数：
+         default: 默认值
+         salt: 加密盐
+         max_age: 后台控制过期时间
+2、设置Cookie：
+
+rep = HttpResponse(...) 或 rep ＝ render(request, ...)
+ 
+rep.set_cookie(key,value,...)
+rep.set_signed_cookie(key,value,salt='加密盐',...)
+     参数：
+         key,              键
+         value='',         值
+         max_age=None,     超时时间
+         expires=None,     超时时间(IE requires expires, so set it if hasn't been already.)
+         path='/',         Cookie生效的路径，/ 表示根路径，特殊的：跟路径的cookie可以被任何url的页面访问
+         domain=None,      Cookie生效的域名
+         secure=False,     https传输
+         httponly=False    只能http协议传输，无法被JavaScript获取（不是绝对，底层抓包可以获取到也可以被覆盖）

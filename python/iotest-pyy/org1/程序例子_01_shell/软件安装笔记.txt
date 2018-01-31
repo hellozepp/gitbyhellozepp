@@ -1,0 +1,119 @@
+软件安装
+
+
+1、如何上传安装包到服务器
+**可以使用图形化工具，如： filezilla
+**可以使用sftp工具：  alt+p 调出后，用put命令上传
+上传（如果不cd指定目录，则上传到当前用户的主目录）：
+sftp> cd /home/   
+sftp> put C:\Users\Administrator\Desktop\day02\soft\jdk-7u45-linux-x64.tar.gz
+下载（lcd指定下载到本地的目标路径）
+sftp> lcd d:/                            
+sftp> get /home/jdk-7u45-linux-x64.tar.gz
+
+**lrzsz
+
+
+2、安装jdk
+**压缩解压缩的相关命令****
+%%压缩解压缩%%
+root@mini1 ~]# gzip access.log 
+[root@mini1 ~]# ll
+总用量 134892
+-rw-r--r--. 1 root root        68 4月   3 17:37 access.log.gz
+
+解压gz文件：  gzip -d access.log.gz
+
+%%打包解包%%
+[root@mini1 ~]# tar -cvf myfirsttarball.tar aaa/
+aaa/
+aaa/2.txt
+aaa/3.txt
+aaa/1.txt
+
+解包：
+[root@mini1 ~]# tar -xvf myfirsttarball.tar 
+aaa/
+aaa/2.txt
+aaa/3.txt
+aaa/1.txt
+
+
+%%一次性完成打包&&压缩的操作%%
+产生压缩包：
+[root@mini1 ~]# tar -zcvf my.tar.gz aaa/
+aaa/
+aaa/2.txt
+aaa/3.txt
+aaa/1.txt
+
+解压缩包：
+[root@mini1 ~]# tar -zxvf my.tar.gz 
+aaa/
+aaa/2.txt
+aaa/3.txt
+aaa/1.txt
+
+
+
+##########安装jdk的过程：
+**解压安装包
+ tar -zxvf jdk-7u45-linux-x64.tar.gz -C apps/
+**然后修改环境变量
+vi /etc/profile
+在文件最后添加
+export JAVA_HOME=/root/apps/jdk1.7.0_45
+export PATH=$PATH:$JAVA_HOME/bin
+保存退出
+
+**然后重新加载环境变量
+source /etc/profile
+
+
+
+3、安装rpm包软件，如mysql
+%%查看系统中安装的rpm包
+rpm -qa | grep mysql
+
+
+
+%%上传rpm安装包
+MySQL-client-5.5.48-1.linux2.6.x86_64.rpm
+MySQL-server-5.5.48-1.linux2.6.x86_64.rpm
+per * .rpm
+
+%%安装perl依赖
+rpm -ivh perl*
+《可能会提示有包冲突，解决： rpm -e 冲突包名 --nodeps 》
+
+%%安装server
+rpm -ivh MySQL-server-5.5.48-1.linux2.6.x86_64.rpm
+如果成功，会看到进度条，最后，有关于root密码设置的提示，一定要记下来
+这个版本的提示是，先启动server
+service mysql start
+然后/usr/bin/mysql_secure_installation 命令去交互式修改root密码
+
+%%修改密码时，提示需要先安装client
+rpm -ivh MySQL-client-5.5.48-1.linux2.6.x86_64.rpm
+
+客户端安装成功后，记得还要用/usr/bin/mysql_secure_installation 命令去交互式修改root密码
+
+%%登录验证
+mysql -uroot -proot
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

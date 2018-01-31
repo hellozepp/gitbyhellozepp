@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="{{ static_url('css/mycss.css') }} ">
+    <script src="{{ static_url('js/myjs.js') }}"></script>
+</head>
+<body>
+    <img class="imgwh" src="{{ static_url('img/1.jpeg') }}"><br/>
+    {% raw xsrf_form_html() %}
+    用户名：<input style="color: #30ac50" id="un" type="text" name="uname" /><br/>
+    密码：<input id="up" type="password" name="upass" /><br/>
+    <input type="button" value="ajax post" onclick="fun()"><br/>
+    <div id="xxx"></div>
+</body>
+</html>

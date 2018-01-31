@@ -1,0 +1,12 @@
+建立数据库：
+CREATE DATABASE py_tornado DEFAULT CHARACTER SET utf8;
+
+建立表：
+
+CREATE TABLE `testapp_user` (
+  `uid` int(11) NOT NULL,
+  `username` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `regtime` datetime(6) NOT NULL,
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
