@@ -10,7 +10,7 @@
     <packaging>jar</packaging>
 
     <properties>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <log4j.version>1.2.15</log4j.version>
         <slf4j.version>1.8.0-alpha2</slf4j.version>
     </properties>
